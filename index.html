@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><strong>Quince Fennell Resume</strong></title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <style>
+    h1 {
+      font: x-large;
+      font-size: 4em;
+    }
+
+    .endpoints {
+      padding-left: 10px;
+    }
+    .no-bullets {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .no-bullets1 li::before {
+      content: "|";
+      display: inline-flex;
+      margin-right: 0px;
+    }
+
+    .btn {
+      text-align: left;
+      width: 90%;
+      padding: 0;
+    }
+
+    .btn-text {
+      display: inline-block;
+      width: calc(100% - 20px);
+      /* Adjust the padding as needed */
+      padding-right: 5px;
+      /* Adjust the padding as needed */
+    }
+
+    .btn-icon {
+      display: inline-block;
+      width: 20px;
+      /* Adjust the size of the icon */
+      text-align: right;
+    }
+
+    .btn:hover .btn-text {
+      text-decoration: underline;
+    }
+
+    .update {
+      color: rgb(56, 56, 56)
+    }
+
+    body {
+      background-color: rgb(24, 26, 27);
+      color: #ddd;
+      font-family: monospace;
+      font: "system-ui";
+    }
+
+    .card-header {
+      padding: 1px;
+      /* Remove padding */
+      margin: 5;
+      /* Remove margin */
+      text-indent: 0px;
+      list-style: none;
+    }
+
+    .mb-0 {
+      margin-bottom: 10 !important;
+      /* Remove bottom margin */
+    }
+
+    .title-line {
+      text-align: left;
+    }
+
+    .subtitle-line {
+      text-align: left;
+      font-size: .8em;
+    }
+
+    .description {
+      font-size: 1em;
+      margin-top: 0;
+      color: #97ddee;
+    }
+
+    /* Depth 1 */
+    .card {
+      background-color: rgb(30, 32, 33);
+      border: none;
+      margin-bottom: 6px;
+      padding: 4px;
+    }
+
+    .card-header {
+      background-color: rgb(30, 32, 33);
+      border-bottom: none;
+      font-size: .1em;
+    }
+
+    .card-header .btn {
+      text-decoration: none;
+      color: #47a8cf;
+      padding: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: 1.2em;
+      /* Adjust this to change the size of the text */
+      margin: 1px;
+      /* Adjust this to change the space around the text */
+    }
+
+    /* Depth 2 */
+    .card .card {
+      background-color: rgb(38, 40, 41);
+      padding: 1px;
+      font-size: 1em;
+    }
+
+    .card .card .card-header {
+      background-color: rgb(38, 40, 41);
+      font-size: 1m;
+    }
+
+    .card .card .card-header .btn {
+      color: #5ca8cd;
+      padding: 4px;
+      /* Adjust this to change the space around the text */
+      font-size: 1em;
+      /* Adjust this to change the size of the text */
+    }
+
+    /* Depth 3 */
+    .card .card .card {
+      background-color: rgb(46, 48, 49);
+      padding: 1px;
+      font-size: 1em;
+    }
+
+    .card .card .card .card-header {
+      background-color: rgb(46, 48, 49);
+      font-size: 1em;
+    }
+
+    .card .card .card .card-header .btn {
+      color: #72a8c2;
+      padding: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: 1em;
+      /* Adjust this to change the size of the text */
+    }
+
+    /* Depth 4 */
+    .card .card .card .card {
+      background-color: rgb(54, 56, 57);
+      padding: 1px;
+      margin: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: 1em;
+    }
+
+    .card .card .card .card .card-header {
+      background-color: rgb(54, 56, 57);
+      margin: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: 1em;
+    }
+
+    .card .card .card .card .card-header .btn {
+      color: #99a9b1;
+      padding: 1px;
+      margin: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: .8em;
+      /* Adjust this to change the size of the text */
+    }
+
+    /* Depth 5 */
+    .card .card .card .card .card {
+      background-color: rgb(62, 64, 65);
+      padding: 1px;
+      margin: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: .8em;
+    }
+
+    .card .card .card .card .card .card-header {
+      background-color: rgb(62, 64, 65);
+    }
+
+    .card .card .card .card .card .card-header .btn {
+      color: #c1c8cb;
+      padding: 1px;
+      margin: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: .8em;
+      /* Adjust this to change the size of the text */
+    }
+
+    .container {
+      left: auto;
+      font-size: large;
+    }
+
+    .sub {
+      font-size: .7em;
+      color: #50768a;
+    }
+
+    .sidebar button {
+      display: block;
+      width: 100%;
+      margin-bottom: 1px;
+      background-color: rgb(36, 36, 36);
+      color: rgb(255, 255, 255);
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+
+    .btn-icon {
+      display: inline;
+    }
+
+    .btn-icon-expanded {
+      display: none;
+    }
+
+    .btn[aria-expanded="true"] .btn-icon {
+      display: none;
+    }
+
+    .btn[aria-expanded="true"] .btn-icon-expanded {
+      display: inline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Quince Fennell</h1>
+    <h2> Cybersecurity | Programming | Game Developent | Sysadmin<h2></h2>
+    </h2>
+    <p> <a href="mailto:q@iamq.dev">q@iamq.dev</a> | <a href="https://www.linkedin.com/in/iamq-dev/">LinkedIn</a> | <a href="https://www.iamq.dev/projects">Portfolio</a>
+      <br><span class="sub"><strong>Remote Work Enthusiast</strong></span>
+    <p> An accomplished cybersecurity professional with a unique background in game development, offering a blend of technical skills in both areas. Currently excelling in the role of a Cybersecurity Specialist, with a proven track record in managing security systems, developing cybersecurity policies, and educating staff on security protocols. Prior experience in game development and programming, with a particular focus on Virtual Reality (VR) games on the Unreal Engine platform, adds a creative edge to my problem-solving abilities. Proficient in a wide range of hardware and software tools, and always ready to leverage these skills to ensure optimal security and functionality.</p>
+    <div class="sidebar">
+      <button class="btn btn-primary"
+              id="scrollToTopButton">⤒</button>
+      <!-- Close All button -->
+      <button class="btn btn-primary"
+              id="closeAllButton">-</button>
+      <br>
+      <!-- Expand All button -->
+      <button class="btn btn-primary"
+              id="expandAllButton">+</button>
+      <button class="btn btn-primary"
+              id="scrollToBottomButton">⤓</button>
+      <!-- ... Existing code ... -->
+    </div>
+    <!--workexperience Layer 1-->
+    <div class="card">
+      <div class="card-header"
+           id="heading-Exp">
+        <h5 class="mb-0">
+          <button class="btn btn-link"
+                  data-toggle="collapse"
+                  data-target="#collapse-Exp"
+                  aria-expanded="false"
+                  aria-controls="collapse-Exp">
+            <span class="btn-icon">+</span>
+            <span class="btn-icon-expanded">-</span>
+            <span class="btn-txt"> Work Experience</span>
+          </button>
+        </h5>
+      </div>
+      <div id="collapse-Exp"
+           class="collapse"
+           aria-labelledby="heading-Exp"
+           data-parent="#accordion">
+        <div class="card-body">
+          <!--workcyber Layer 2-->
+          <div class="card">
+            <div class="card-header"
+                 id="heading-workcyber">
+              <h5 class="mb-0">
+                <button class="btn btn-link"
+                        data-toggle="collapse"
+                        data-target="#collapse-workcyber"
+                        aria-expanded="false"
+                        aria-controls="collapse-workcyber">
+                  <span class="btn-icon">+</span>
+                  <span class="btn-icon-expanded">-</span>
+                  <span class="title-line">Cybersecurity Specialist </span>
+                </button>
+                <br><span class="subtitle-line"><a href="https://www.rsu.edu"
+                     target="_blank">Rogers State University</a> | Claremore, OK | 2020 - <span id="currentYear"></span></span> 
+              </h5>
+            </div>
+            <div id="collapse-workcyber"
+                 class="collapse"
+                 aria-labelledby="heading-workcyber"
+                 data-parent="#accordion">
+              <div class="card-body">
+                <!-- start listing rsu cyber work categories -->
+                <span class="description">As a Cybersecurity Specialist, my role encompassed proactively identifying and mitigating security vulnerabilities, implementing protective measures, monitoring network activity for potential threats, and responding to and resolving security incidents to safeguard organizational systems and data.</span>
+                <ul class="no-bullets">
+                  <li>
+                    <!--gov Layer 3-->
+                    <div class="card">
+                      <div class="card-header"
+                           id="heading-cybergov">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link"
+                                  data-toggle="collapse"
+                                  data-target="#collapse-cybergov-v2"
+                                  aria-expanded="false"
+                                  aria-controls="collapse-cybergov-v2">
+                            <span class="btn-icon">+</span>
+                            <span class="btn-icon-expanded">-</span>
+                            <span class="title-line">Governance and Compliance </button>
+                        </h5>
+                      </div>
+                      <div id="collapse-cybergov-v2"
+                           class="collapse"
+                           aria-labelledby="heading-cybergov"
+                           data-parent="#accordion">
+                        <div class="card-body">
+                          <span class="description">I played a pivotal role in establishing and maintaining security policies, conducting risk assessments, implementing security controls, and ensuring compliance with industry regulations and best practices.</span>
+                          <!--pol-docs Layer -->
+                          <div class="card">
+                            <div class="card-header"
+                                 id="heading-pol-docs">
+                              <h5 class="mb-0">
+                                <button class="btn btn-link"
+                                        data-toggle="collapse"
+                                        data-target="#collapse-pol-docs"
+                                        aria-expanded="false"
+                                        aria-controls="collapse-pol-docs"> <span class="btn-icon">+</span>
+                                  <span class="btn-icon-expanded">-</span>
+                                  <span class="title-line">Policy and Documentation <!-- button text --></span>
+                                </button>
+                              </h5>
+                            </div>
+                            <div id="collapse-pol-docs"
+                                 class="collapse"
+                                 aria-labelledby="heading-pol-docs"
+                                 data-parent="#accordion">
+                              <div class="card-body">
+                                <!-- layer content -->
+                                <ul class="endpoints">
+                                  <li>In the area of policy,</li>
+                                  <ul class="endpoints">
+                                    <li> I took the NIST cybersecurity policy template as a foundation and meticulously broke it down into categories. I then connected related policies, ensuring a logical flow and interconnectedness between them. To enhance accessibility and ease of navigation, I converted the policies into markdown format and incorporated internal links, allowing for seamless navigation between different sections and policies. This approach facilitated efficient referencing and made it akin to browsing a well-structured and interconnected knowledge base, similar to navigating through a Wikipedia page.</li>
+                                    <li>Migrated the policy database to Confluence by Atlassian, leveraging its robust features for enhanced connectivity with a ticketing system and documentation database. This integration streamlined access to policies and facilitated efficient collaboration and knowledge sharing. </li>
+                                    <li>Built guest accounts for third parties, fostering seamless cooperation and enabling them to access relevant resources and contribute to collaborative efforts in a secure and controlled manner.</li>
+                                    <li>Maintained version control for logging purposes, ensuring accurate and comprehensive tracking of policy revisions, updates, and historical changes for audit and compliance purposes. </li>
+                                    <li>Developed standardized templates to ensure consistency in policy structure, formatting, and content across the organization, promoting clarity and ease of understanding while adhering to industry best practices and compliance requirements.</li>
+                                  </ul>
+                                  <li>In the area of procedure and documentation,</li>
+                                  <ul class="endpoints">
+                                    <li>Collaborated with the team to efficiently migrate decades of knowledge from an unorganized folder structure into a centralized Confluence database, streamlining access and ensuring a comprehensive and easily accessible knowledge repository.</li>
+                                    <li>Developed standardized templates for documenting procedures, ensuring consistency in format, content, and terminology, while promoting clarity and ease of understanding.</li>
+                                    <li>Implemented a robust tagging system within the documentation database, enabling efficient searching and retrieval of relevant information, contributing to improved productivity and knowledge sharing.</li>
+                                    <li>Integrated the procedure documentation directly with the ticketing and policy systems, establishing a seamless connection that facilitated streamlined workflows and enhanced cross-functional collaboration.</li>
+                                  </ul>
+                                </ul>
+                                <!-- end layer content -->
+                              </div>
+                            </div>
+                          </div>
+                          <!--END pol-docs Layer -->
+                          <ul class="endpoints">
+                            <li>Worked with various regulations including GLBA, HIPAA, PCI, and FERPA.</li>
+                            <li>Developed and conducted cybersecurity training programs for employees to promote awareness, adherence to security policies, and procedures.</li>
+                            <li>Collaborated with cross-functional teams to perform security risk assessments, identify vulnerabilities, and recommend remediation strategies.</li>
+                            <li>Participated in incident response activities, including investigating security breaches, coordinating with stakeholders, and implementing preventive measures.</li>
+                            <li>Conducted regular security audits and assessments to ensure compliance with regulations and industry standards.</li>
+                            <li>Contributed to the development and maintenance of a comprehensive information security framework and governance structure.</li>
+                            <li>Engaged in continuous monitoring of security controls, analyzing logs, and implementing proactive measures to detect and mitigate potential threats.</li>
+                            <li>Stayed updated on evolving cybersecurity trends, emerging threats, and regulatory changes, incorporating them into governance and compliance practices.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!--gov Layer 3-->
+                  </li>
+                  <li>
+                    <!--Systems Secuirty Layer 4-->
+                    <div class="card">
+                      <div class="card-header"
+                           id="heading-syssec">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link"
+                                  data-toggle="collapse"
+                                  data-target="#collapse-syssec"
+                                  aria-expanded="false"
+                                  aria-controls="collapse-syssec"> <span class="btn-icon">+</span>
+                            <span class="btn-icon-expanded">-</span>
+                            <span class="title-line">Systems Security</span> </button>
+                        </h5>
+                      </div>
+                      <div id="collapse-syssec"
+                           class="collapse"
+                           aria-labelledby="heading-syssec"
+                           data-parent="#accordion">
+                        <div class="card-body">
+                          <span class="description">Protection of computer systems and networks from threats</span>
+                          <ul class="endpoints">
+                            <li>
+                              <strong>Penetration Testing Experience:</strong> Utilized skills in penetration testing to assess and identify vulnerabilities within systems.
+                            </li>
+                            <li>
+                              <strong>Okta:</strong> Leveraged Okta to manage and secure user authentication and access control.
+                            </li>
+                            <li>
+                              <strong>1password:</strong> Utilized 1password as a password manager to enhance security and streamline access management.
+                            </li>
+                            <li>
+                              <strong>Palo Alto:</strong> Managed Palo Alto firewalls, taking over ownership after a third-party separation with RSU. Organized configurations, implemented object variables for human-readable security rules, and established site-to-site VPN tunnels for connectivity to Azure Active Directory and the Student Management system.
+                            </li>
+                            <li>
+                              <strong>Vendor Systems Experience:</strong> Conducted proof-of-value deployments for various vendor systems, including Horizion3.ai, Checkpoint, Darktrace, and DataDog.
+                            </li>
+                            <li>
+                              <strong>Manage Engine:</strong> Configured Manage Engine tools, including Desktop Central RMM for efficient desktop management and deployed Log 360 SIEM for comprehensive log management and analysis.
+                            </li>
+                          
+                          </ul>
+                              <!--Azure Layer -->
+                              <div class="card">
+                                <div class="card-header"
+                                     id="heading-Azure">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link"
+                                            data-toggle="collapse"
+                                            data-target="#collapse-Azure"
+                                            aria-expanded="false"
+                                            aria-controls="collapse-Azure">
+                                      <span class="btn-icon">+</span>
+                                      <span class="btn-icon-expanded">-</span>
+                                      <span class="title-line"><strong>Azure Active Directory</strong></span><!-- button text -->
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapse-Azure"
+                                     class="collapse"
+                                     aria-labelledby="heading-Azure"
+                                     data-parent="#accordion">
+                                  <div class="card-body">
+                                    <!-- layer content -->
+                                    <ul class="endpoints">
+                                      <li>Deployed AD Connect for Hybrid Enviornment</li>
+                                      <li>Deployed Multifactor Authentication</li>
+                                      <li>Deployed Self Service Password Reset</li>
+                                      <li>Deployed SAML Authentication for SAAS vendors</li>
+                                      <li>Deployed Conditional Access Rules</li>
+                                      <li>Deployed Identity Governence and Access Reviews</li>
+                                      <li>Deployed Data Loss Prevention Policy</li>
+                                      <li>Deployed Email Security Policy</li>
+                                      <li>Deployed Microsoft Defender for Endpoint (EDR)(ATP)</li>
+                                      <li>Deployed Privilaged Identity Management Principles</li>
+                                      <li>Deployed Windows Security Policy through Microsoft Defender and Intune</li>
+                                      <li>Deployed Network Security Groups and Virtual Firewall</li>
+                                      <li>Deployed Certificate based API authentication for automation</li>
+                                      <li>Deployed Simulated Phishing Training</li>
+                                      <li>Deployed AAD Domain Services for Secure LDAP Authentication</li>
+                                      <li>Working toward implamenting Vulnerability Management</li>
+                                      <li>Experience with Hardware Authentication</li>
+                                    </ul>
+                                    <!-- end layer content -->
+                                  </div>
+                                </div>
+                              </div>
+                              <!--END Azure Layer -->
+                           
+                        </div>
+                      </div>
+                    </div>
+                    <!--Systems Secuirty Layer 4-->
+                  </li>
+                  <li>
+                    <!--systems-administration Layer -->
+                    <div class="card">
+                      <div class="card-header"
+                           id="heading-systems-administration">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link"
+                                  data-toggle="collapse"
+                                  data-target="#collapse-systems-administration"
+                                  aria-expanded="false"
+                                  aria-controls="collapse-systems-administration">
+                            <span class="btn-icon">+</span>
+                            <span class="btn-icon-expanded">-</span>
+                            <span class="title-line">Systems Administration</span><!-- button text -->
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapse-systems-administration"
+                           class="collapse"
+                           aria-labelledby="heading-systems-administration"
+                           data-parent="#accordion">
+                        <div class="card-body">
+                          <!-- layer content -->
+                          <ul class="endpoints">
+                            <li>
+                              <strong>Remote Management and Scripting:</strong> Utilized Desktop Central and Level.io for remote management and scripting.
+                            </li>
+                            <li>
+                              <strong>Azure:</strong> Managed various components within Azure, including: <ul class="endpoints">
+                                <li>
+                                  <strong>Microsoft Intune:</strong> Deployed custom provisioning drives for automatic imaging and enrollment of devices, implemented configuration management, deployed applications and Windows updates, and configured both hybrid joined and AAD-only joined devices.
+                                </li>
+                                <li>
+                                  <strong>Azure Active Directory:</strong> Utilized scripting for provisioning students from external systems, group assignment based on enrolled classes, and password updates for service and shared accounts. Customized AD Connect attribute sync, gained familiarity with Log Analytics fundamentals and virtual networking, deployed Azure Virtual Desktop including shared host pools, persistent VMs, and remote applications. Developed workflows for image creation and updating, implemented dynamic grouping for automatic application and desktop assignment, and deployed FxLogix.
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <strong>Active Directory:</strong> Managed Active Directory infrastructure.
+                            </li>
+                            <li>
+                              <strong>Global Policy:</strong> Assisted in implamenting and managing global policies.
+                            </li>
+                            <li>
+                              <strong>DHCP and DNS:</strong> Assisted in configuring DHCP and DNS services.
+                            </li>
+                            <li>
+                              <strong>Print Management:</strong> Utilized Uniflow Online Print Management and API scripts for print management, I also have experience with Microsoft Univeral Print.
+                            </li>
+                            <li>
+                              <strong>Atlassian Tools Suite:</strong> Deployed Confluence knowledge databases for documentation and policy, implemented Jira Service Desk for ticketing systems, utilized Atlassian Administration for user provisioning and integration, and gained experience with asset management.
+                            </li>
+                            <li>
+                              <strong>IIS Website Management:</strong> Managed IIS websites for both internal tools and productions systems.
+                            </li>
+                            <li>
+                              <strong>Configuration Experience:</strong> Experience configuring systems like Salesforce, Laserfiche Document Management system, Blackboard.
+                            </li>
+                            <li>
+                              <strong>Microsoft SQL Database Administration:</strong> Administered Microsoft SQL databases for student information systems, various internal systems, and student learning course enviornment.
+                            </li>
+                          </ul>
+                          <!-- end layer content -->
+                        </div>
+                      </div>
+                    </div>
+                    <!--END systems-administration Layer -->
+                  </li>
+                </ul>
+              </div> <!-- end rsu cyber work -->
+            </div>
+          </div>
+          <!--workcyber Layer 2-->
+          <!--worktech Layer -->
+          <div class="card">
+            <div class="card-header"
+                 id="heading-worktech">
+              <h5 class="mb-0">
+                <button class="btn btn-link"
+                        data-toggle="collapse"
+                        data-target="#collapse-worktech"
+                        aria-expanded="false"
+                        aria-controls="collapse-worktech">
+                  <span class="btn-icon">+</span>
+                  <span class="btn-icon-expanded">-</span>
+                  <span class="title-line">Computer Technician</span>
+                </button><br>
+                <span class="subtitle-line"><a href="https://www.rsu.edu"
+                     target="_blank">Rogers State University</a> | Claremore, OK | 2019 - 2020 
+              </h5>
+            </div>
+            <div id="collapse-worktech"
+                 class="collapse"
+                 aria-labelledby="heading-worktech"
+                 data-parent="#accordion">
+              <div class="card-body">
+                <span class="description">My role involved providing technical support, managing computer hardware and software installations, and troubleshooting network issues.</span> <!-- description / subtitle -->
+                <!-- layer content -->
+                <ul class="endpoints">
+                  <li>Performed installations, configurations, and maintenance of microcomputer hardware and software. </li>
+                  <li>Expertly handled networking and phone cable/hardware installation, as well as troubleshooting.</li>
+                  <li>Provided exceptional L1-L2 tech support, resolving technical issues promptly and effectively.</li>
+                  <li>Demonstrated excellent customer service skills, ensuring a positive user experience.</li>
+                </ul>
+                <!-- end layer content -->
+              </div>
+            </div>
+          </div>
+          <!--END worktech Layer -->
+          <!--workdev Layer -->
+          <div class="card">
+            <div class="card-header"
+                 id="heading-workdev">
+              <h5 class="mb-0">
+                <button class="btn btn-link"
+                        data-toggle="collapse"
+                        data-target="#collapse-workdev"
+                        aria-expanded="false"
+                        aria-controls="collapse-workdev">
+                  <span class="btn-icon">+</span>
+                  <span class="btn-icon-expanded">-</span>
+                  <span class="title-line">Freelance Unreal Developer </span>
+                </button>
+                <br>
+                <span class="subtitle-line"><a href="https://www.youtube.com/@bevel8354"
+                     target="_blank">Bevel VR</a> | Seattle | 2017 - 2019 
+              </h5>
+            </div>
+            <div id="collapse-workdev"
+                 class="collapse"
+                 aria-labelledby="heading-workdev"
+                 data-parent="#accordion">
+              <div class="card-body">
+                <span class="description"> As a Freelance Unreal Developer, I collaborated with clients to design and develop interactive virtual experiences using Unreal Engine, ensured smooth functionality, optimized performance, and delivered visually compelling projects.</span> <!-- description / subtitle -->
+                <!-- layer content -->
+                <ul class="endpoints">
+                  <li>Developed a Virtual Model Unit that allowed clients to customize and visualize their ideal apartment space, enabling them to make informed purchase decisions. | <a href="https://www.iamq.dev/projects#h.kp4fp674iwjp">Virtual Model Unit</a></li>
+                  <li>Created a Virtual Exam Room where executive-level decision makers could interact with and customize equipment placements, assisting in the design process for hospitals and medical facilities. | <a href="https://www.iamq.dev/projects#h.4sm6zgyotlpc">Exam Room Configuration</a></li>
+                  <li>Designed and implemented a Workflow Simulator that facilitated the examination of traffic flow within building designs, optimizing layouts for optimal efficiency. | <a href="https://www.iamq.dev/projects#h.kfd8hij1oge9">Workspace Simulation</a></li>
+                </ul>
+                <!-- end layer content -->
+              </div>
+            </div>
+          </div>
+          <!--END workdev Layer -->
+          <!--work-chronos Layer -->
+          <div class="card">
+            <div class="card-header"
+                 id="heading-work-chronos">
+              <h5 class="mb-0">
+                <button class="btn btn-link"
+                        data-toggle="collapse"
+                        data-target="#collapse-work-chronos"
+                        aria-expanded="false"
+                        aria-controls="collapse-worktech">
+                  <span class="btn-icon">+</span>
+                  <span class="btn-icon-expanded">-</span>
+                  <span class="title-line">Lead Unreal Developer </span>
+                </button>
+                <br>
+                <span class="subtitle-line">
+                  <a href="https://www.washingtoncompanysearch.com/companies/chronos-global-academy-inc/"
+                     target="_blank">Chronos Global Academy</a> | Seattle, WA | 2015 - 2017 
+              </h5>
+            </div>
+            <div id="collapse-work-chronos"
+                 class="collapse"
+                 aria-labelledby="heading-work-chronos"
+                 data-parent="#accordion">
+              <div class="card-body">
+                <span class="description">As the Lead Unreal Developer at Chronos, I spearheaded the design and development of immersive virtual experiences using Unreal Engine, leveraging my expertise to guide the team and create visually captivating applications.</span> <!-- description / subtitle -->
+                <!-- layer content -->
+                <ul class="endpoints">
+                  <li>Developed immersive virtual experiences using Unreal Engine as part of a small team, including a user experience deployed to Samsung GearVR, a mobile phone-based VR platform | <a href="https://www.viveport.com/apps/81d51b3e-f193-4604-ac5d-40802c24a7dc?hl=en-US">Vr Guest</a></li>
+                  <li>Created a VR puzzle game published on Steam, demonstrating proficiency in Unreal Engine and game development. | <a href="https://store.steampowered.com/app/492850/Astroderps/">Astroderps</a></li>
+                  <li>Gained valuable experience and knowledge working with virtual reality technologies and collaborating with a team in a professional environment.</li>
+                </ul>
+                <!-- end layer content -->
+              </div>
+            </div>
+          </div>
+          <!--END work-chronos Layer -->
+          <!--workosage Layer -->
+          <div class="card">
+            <div class="card-header"
+                 id="heading-workosage">
+              <h5 class="mb-0">
+                <button class="btn btn-link"
+                        data-toggle="collapse"
+                        data-target="#collapse-workosage"
+                        aria-expanded="false"
+                        aria-controls="collapse-workosage">
+                  <span class="btn-icon">+</span>
+                  <span class="btn-icon-expanded">-</span>
+                  <span class="title-line">Database Analyst, Security Team </span>
+                </button>
+                <br>
+                <span class="subtitle-line"><a href="https://www.osagecasino.com/"
+                     target="_blank">Osage Nation Casinos</a> | Tulsa, OK | 2014 - 2015 
+              </h5>
+            </div>
+            <div id="collapse-workosage"
+                 class="collapse"
+                 aria-labelledby="heading-workosage"
+                 data-parent="#accordion">
+              <div class="card-body">
+                <span class="description">Maintain and organize data colected by the security team to produce useful information</span> <!-- description / subtitle -->
+                <!-- layer content -->
+                <ul class="endpoints">
+                  <li>Oversaw multiple databases and executed security focues software and hardware solutions</li>
+                  <li>Prepared training sessons, developed technology-based training solutions</li>
+                  <li>Migrated Decades worth of Excel spreates to a Microsoft Access Database</li>
+                  <li>Aditionally worked as a security officer and Training Administrator</li>
+                </ul>
+                <!-- end layer content -->
+              </div>
+            </div>
+          </div>
+          <!--END workosage Layer -->
+          <!--workarch Layer -->
+          <div class="card">
+            <div class="card-header"
+                 id="heading-workarch">
+              <h5 class="mb-0">
+                <button class="btn btn-link"
+                        data-toggle="collapse"
+                        data-target="#collapse-workarch"
+                        aria-expanded="false"
+                        aria-controls="collapse-workarch">
+                  <span class="btn-icon">+</span>
+                  <span class="btn-icon-expanded">-</span>
+                  <span class="title-line">Archivist Assistant </span>
+                </button>
+                <br>
+                <span class="subtitle-line"><a href="https://library.nsuok.edu/spc/index"
+                     target="_blank">Northeastern State University</a> | Tahlequah, OK | 2013 
+              </h5>
+            </div>
+            <div id="collapse-workarch"
+                 class="collapse"
+                 aria-labelledby="heading-workarch"
+                 data-parent="#accordion">
+              <div class="card-body">
+                <span class="description">As an archivist's assistant, I meticulously organized and cataloged archival materials, provided comprehensive support for administrative tasks, and used my skill set to assist the department.</span> <!-- description / subtitle -->
+                <!-- layer content -->
+                <ul class="endpoints">
+                  <li>Constructed graphics for the university's library using Adobe Suite.</li>
+                  <li>Worked with NSU President on an animated Christmas card for the community using Adobe After Effects. </li>
+                  <li>Provided comprehensive support, undertaking administrative and operational tasks.</li>
+                  <li>Organized archival materials, alphabetizing and categorizing documents for efficient retrieval.</li>
+                  <li>Managed film strips, including cutting, labeling, and cataloging.</li>
+                  <li>Assisted with inventory management and maintained accurate records.</li>
+                </ul>
+                <!-- end layer content -->
+              </div>
+            </div>
+          </div>
+          <!--END workarch Layer -->
+          <!--workold Layer -->
+          <div class="card">
+            <div class="card-header"
+                 id="heading-workold">
+              <h5 class="mb-0">
+                <button class="btn btn-link"
+                        data-toggle="collapse"
+                        data-target="#collapse-workold"
+                        aria-expanded="false"
+                        aria-controls="collapse-workold">
+                  <span class="btn-icon">+</span>
+                  <span class="btn-icon-expanded">-</span>
+                  <span class="title-line">Additional </span>
+                </button>
+              </h5>
+            </div>
+            <div id="collapse-workold"
+                 class="collapse"
+                 aria-labelledby="heading-workold"
+                 data-parent="#accordion">
+              <div class="card-body">
+                <span class="description"></span> <!-- description / subtitle -->
+                <!-- layer content -->
+                <ul class="endpoints">
+                  <li>Tech support</li>
+                  <li>Advertisement/Menu Design</li>
+                  <li>Manual labor</li>
+                  <li>Food and Customer services</li>
+                </ul>
+                <!-- end layer content -->
+              </div>
+            </div>
+          </div>
+          <!--END workold Layer -->
+        </div>
+      </div>
+    </div>
+    <!--workexperience Layer 1-->
+    <!--technical-proficiency Layer -->
+    <div class="card">
+      <div class="card-header"
+           id="heading-technical-proficiency">
+        <h5 class="mb-0">
+          <button class="btn btn-link"
+                  data-toggle="collapse"
+                  data-target="#collapse-technical-proficiency"
+                  aria-expanded="false"
+                  aria-controls="collapse-technical-proficiency">
+            <span class="btn-icon">+</span>
+            <span class="btn-icon-expanded">-</span>
+            <span class="title-line"> Technical Proficiency</span><!-- button text -->
+          </button>
+        </h5>
+      </div>
+      <div id="collapse-technical-proficiency"
+           class="collapse"
+           aria-labelledby="heading-technical-proficiency"
+           data-parent="#accordion">
+        <div class="card-body">
+          <span class="description">This section lists the software and systems that I have worked with in the past. I'll keep the ones I know more about at the front of each list.</span> <!-- description / subtitle -->
+          <!-- layer content -->
+          <ul class="endpoints">
+            <li><strong>OS:</strong></li>
+            <ul class="endpoints">
+              <li><strong>Windows:</strong> My current main OS; my current job lives in Windows, so I do as well.</li>
+              <li><strong>Linux:</strong> I ran Linux as my main OS for quite a few years, changing back to Windows for work requirements. Some distros I used are Kali, Arch, #!, and Ubuntu. When I get to building a new machine, I'll be starting fresh with <a href="https://www.qubes-os.org/">Qubes OS</a>.</li>
+            </ul>
+            <li><strong>Software:</strong></li>
+            <ul class="endpoints">
+              <li><strong>Creative:</strong> Adobe Suite, Gimp, Blender, Cinema4D, Stability, Control-Net, Chitubox</li>
+              <li><strong>IDE:</strong> vscode, nvim </li>
+              <li><strong>Source Control:</strong> Git, Git LFS, Perforce, WVS</li>
+              <li><strong>Game Engine:</strong> Unreal Engine 5, Unity</li>
+              <li><strong>Essential:</strong> 7zip, Everything, winget, AutoHotKey, PowerToys, Sysinternals, Brave (working on transitioning to Nyxt), Obs, Obsidian, VLC, MSEdgeRedirect, 1Password, Ultramon</li>
+            </ul>
+            <li><strong>Languages:</strong> Most programming languages follow similar principles; once you abstract those, every other language is just learning syntax. So, I try not to get hooked on any language and flow around based on my current task and interests.</li>
+            <ul class="endpoints">
+              <li><strong>Powershell:</strong> My current bread and butter</li>
+              <li><strong>Python:</strong> I have a decent grasp of it. This is the language I want to deep dive into for neural networks</li>
+              <li><strong>C++:</strong> Useful for Unreal Engine</li>
+              <li><strong>C#:</strong> Useful for Unity</li>
+              <li><strong>VBA:</strong> Bane of my existence but needed for the fun stuff in Excel</li>
+              <li><strong>HTML, CSS, JS:</strong> Useful for websites like this one</li>
+              <li><strong>SQL:</strong> Just know enough to get me in trouble</li>
+              <li><strong>Lua:</strong> I've dabbled</li>
+            </ul>
+          </ul>
+          <!-- end layer content -->
+        </div>
+      </div>
+    </div>
+    <!--END technical-proficiency Layer -->
+    <!-- Education -->
+    <div class="card">
+      <div class="card-header"
+           id="headingEducation">
+        <h5 class="mb-0">
+          <button class="btn btn-link"
+                  data-toggle="collapse"
+                  data-target="#collapseEducation"
+                  aria-expanded="false"
+                  aria-controls="collapseEducation"> <span class="btn-icon">+</span>
+            <span class="btn-icon-expanded">-</span>
+            <span class="title-line">Education </button>
+        </h5>
+      </div>
+      <div id="collapseEducation"
+           class="collapse"
+           aria-labelledby="headingEducation"
+           data-parent="#accordion">
+        <div class="card-body">
+          <h3>Bachelor of Science: Game Development</h3>
+          <p><a href="https://www.rsu.edu"
+               target="_blank">Rogers State University</a> | Claremore, OK</p>
+          <p><strong>Graduated:</strong> 2014</p>
+          <p><strong>Coursework included:</strong></p>
+          <ul class="endpoints">
+            <li>Game Programming I & II</li>
+            <li>Game Development Seminar</li>
+            <li>Physics for Gaming</li>
+            <li>Digital Foundations</li>
+            <li>Digital 3D Foundations</li>
+            <li>Digital 3D Studio</li>
+            <li>Computer Graphics Programming</li>
+            <li>Introduction to Modeling & Simulation</li>
+            <li>Physics I&II</li>
+            <li>Linear Algebra</li>
+            <li>Discrete Mathematics</li>
+          </ul>
+          <p><strong>Honors:</strong> Game Development Scholarship</p>
+        </div>
+      </div>
+    </div>
+    <!--Personal-experience Layer -->
+    <div class="card">
+      <div class="card-header"
+           id="heading-Personal-experience">
+        <h5 class="mb-0">
+          <button class="btn btn-link"
+                  data-toggle="collapse"
+                  data-target="#collapse-Personal-experience"
+                  aria-expanded="false"
+                  aria-controls="collapse-Personal-experience">
+            <span class="btn-icon">+</span>
+            <span class="btn-icon-expanded">-</span>
+            <span class="title-line">Personal Experience<!-- button text --></span>
+          </button>
+        </h5>
+      </div>
+      <div id="collapse-Personal-experience"
+           class="collapse"
+           aria-labelledby="heading-Personal-experience"
+           data-parent="#accordion">
+        <div class="card-body">
+          <span class="description"></span> <!-- description / subtitle -->
+          <!-- layer content --> In addition to my professional qualifications, I possess a diverse range of personal interests that fuel my curiosity and drive for continuous learning. From exploring the realm of 3D printing and the intricacies of miniature wargaming to diving into the immersive world of gaming, I find joy in both creative and technical pursuits. Building computer hardware, exploring cloud computing, and tinkering with home lab networking allows me to combine my passion for technology and hands-on problem-solving. Alongside these hobbies, I am deeply fascinated by the realms of art, neural networks, large language models, mathematics, and logic. Additionally, I eagerly engage in the imaginative storytelling of Dungeons and Dragons. These diverse interests reflect my well-rounded nature and drive to continuously explore and discover new realms of knowledge and creativity. <!-- end layer content -->
+        </div>
+      </div>
+    </div>
+    <!--END Personal-experience Layer -->
+    <!--ref Layer -->
+    <div class="card">
+      <div class="card-header"
+           id="heading-ref">
+        <h5 class="mb-0">
+          <button class="btn btn-link"
+                  data-toggle="collapse"
+                  data-target="#collapse-ref"
+                  aria-expanded="false"
+                  aria-controls="collapse-ref">
+            <span class="btn-icon">+</span>
+            <span class="btn-icon-expanded">-</span>
+            <span class="title-line">Reference <!-- button text --></span>
+          </button>
+        </h5>
+      </div>
+      <div id="collapse-ref"
+           class="collapse"
+           aria-labelledby="heading-ref"
+           data-parent="#accordion">
+        <div class="card-body">
+          <!-- layer content -->
+          <a href="https://www.rsu.edu/directory/brian-reeves/"><strong>Brian Reeves</strong></a> Directory of Information Technology <p><a href="https://www.rsu.edu"
+               target="_blank">Rogers State University</a> | Claremore, OK</p>
+          <a href="https://www.rsu.edu/directory/ethan-williams/"><strong>Ethan Wililams</strong></a> Computer Technician <p><a href="https://www.rsu.edu"
+               target="_blank">Rogers State University</a> | Claremore, OK</p>
+          <a href="https://www.linkedin.com/in/simonxr/"><strong>Simon Manning</strong> </a>Freelance Designer <p><a href="https://www.simplesimon.space/"
+               target="_blank">Freelance</a> | Seattle, WA</p>
+          <a href="https://www.linkedin.com/in/christian-e-jensen/"><strong>Christian Jensen</strong></a> Systems Database Manager <p><a href="https://www.osagecasino.com/"
+               target="_blank">Osage Nation Casinos</a> | Tulsa, OK</p>
+          <!-- end layer content -->
+        </div>
+      </div>
+    </div>
+    <!--END ref Layer -->
+    <span class="update">last-update: 2023.07.17T18.50.31</span>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Close All button click event
+      $('#closeAllButton').click(function () {
+        $('.collapse').collapse('hide');
+      });
+
+      // Expand All button click event
+      $('#expandAllButton').click(function () {
+        $('.collapse').collapse('show');
+      });
+
+      // Scroll to Top button click event
+      $('#scrollToTopButton').click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+      });
+
+      // Scroll to Bottom button click event
+      $('#scrollToBottomButton').click(function () {
+        $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
+      });
+    });
+  </script>
+  <script>
+    // Get the current year
+    const currentYear = new Date().getFullYear();
+
+    // Update the text content of the span with the current year
+    document.getElementById("currentYear").textContent = currentYear;
+  </script>
+</body>
+
+</html>
