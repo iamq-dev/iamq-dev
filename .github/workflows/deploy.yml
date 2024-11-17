@@ -1,0 +1,47 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - dev
+      - prod
+
+  workflow_dispatch:  # Allows manual triggering
+    inputs:
+      version:
+        description: "Choose the version to deploy (v1 or v2)"
+        required: true
+        default: "v1"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v3
+
+    - name: Install dependencies (for v2)
+      if: ${{ github.event.inputs.version == 'v2' }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Build and deploy v2
+      if: ${{ github.event.inputs.version == 'v2' }}
+      run: |
+        cd v2
+        node scripts/generate.js  # Adjust script if necessary
+        cp -R ./dist ../../dist
+
+    - name: Deploy v1
+      if: ${{ github.event.inputs.version == 'v1' }}
+      run: |
+        cp -R ./v1/* ./dist
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        publish_branch: gh-pages
