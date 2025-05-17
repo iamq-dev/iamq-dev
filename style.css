@@ -3,7 +3,17 @@
       font: x-large;
       font-size: 4em;
     }
+/* Assuming your h1 has a base color and font-size already,
+   either from Bootstrap or your own styles. */
 
+h1 .name-detail {
+  color: #darkgrey; /* Replace with the hex code or name of your desired darker color */
+                              /* For example, if your h1 is #DDD, maybe this is #AAA or #999 */
+  font-size: 0.85em;        /* Makes it 85% of the parent h1's font size. Adjust as needed. */
+                              /* e.g., 0.9em, 0.8em etc. */
+  /* You might need to add other properties like: */
+  /* vertical-align: baseline; /* or other values if alignment looks off */
+  /* letter-spacing: -0.05em; /* Optional: if a smaller size makes spacing look too wide */
     .endpoints {
       padding-left: 10px;
     }
