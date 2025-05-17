@@ -3,7 +3,7 @@ name: Build and Deploy Resume
 on:
   push:
     branches:
-      - dev
+      - main
     paths: # Only run if these files change
       - 'resume_data.json'
       - 'template.hbs'
