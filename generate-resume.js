@@ -38,24 +38,21 @@ Handlebars.registerHelper('renderNestedItems', function(items, baseId, depth = 0
     const itemId = Handlebars.helpers.safeId(baseId, 'item', depth, index);
     html += '<li>';
     if (typeof item === 'string') {
-      html += `{{{item}}}`; // Use triple-stash for strings that might contain HTML
+      // Directly use the item string. Since it might contain HTML and we want it raw,
+      // and this helper returns a SafeString, this is okay.
+      html += item;
     } else { // It's an object, render as a card
       const collapseId = `collapse-${itemId}`;
       const headingId = `heading-${itemId}`;
 
-      // aria-expanded will be set to false by default
-      // data-parent helps manage accordion behavior; for deeply nested, it might be the immediate parent card's collapse div ID.
-      // Your original HTML often used a general #accordion. We will make it point to the parent accordion section if possible,
-      // or rely on the default Bootstrap behavior for nested collapses if a specific parent isn't easily determined or needed.
-      // For now, we'll keep it simple and not add data-parent to deeply nested items unless clearly structured in JSON.
-
       html += `
-        <div class="card"> <div class="card-header" id="${headingId}">
+        <div class="card">
+          <div class="card-header" id="${headingId}">
             <h5 class="mb-0">
               <button class="btn btn-link" data-toggle="collapse" data-target="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
                 <span class="btn-icon">+</span>
                 <span class="btn-icon-expanded">-</span>
-                <span class="title-line">${item.title}</span>
+                <span class="title-line">${item.title ? Handlebars.escapeExpression(item.title) : ''}</span>
               </button>
             </h5>
           </div>
@@ -63,13 +60,13 @@ Handlebars.registerHelper('renderNestedItems', function(items, baseId, depth = 0
             <div class="card-body">
       `;
       if (item.description) {
-        // Triple stash for description, as it might contain HTML (like links)
-        html += `<span class="description">{{{item.description}}}</span>`;
+        // Directly interpolate the description. Assuming item.description can contain HTML
+        // and needs to be rendered raw. If it's plain text, you could escape it.
+        html += `<span class="description">${item.description}</span>`;
       }
       if (item.items && item.items.length > 0) {
-        // Recursive call for sub-items.
-        // Pass a more specific listClass if needed, e.g., 'no-bullets' based on your original HTML.
-        html += Handlebars.helpers.renderNestedItems(item.items, itemId, depth + 1, 'endpoints'); // Or make listClass dynamic
+        // Recursive call for sub-items. The result of this is already HTML.
+        html += Handlebars.helpers.renderNestedItems(item.items, itemId, depth + 1, 'endpoints');
       }
       html += `
             </div>
@@ -80,7 +77,7 @@ Handlebars.registerHelper('renderNestedItems', function(items, baseId, depth = 0
     html += '</li>';
   });
   html += '</ul>';
-  return new Handlebars.SafeString(html);
+  return new Handlebars.SafeString(html); // Crucial: mark the returned HTML as safe
 });
 
 // Helper to generate the last updated timestamp
