@@ -4,14 +4,12 @@
       color: #FFF;
       font-size: 4em;
     }
-/* Assuming your h1 has a base color and font-size already,
-   either from Bootstrap or your own styles. */
 
     h1 .name-detail {
       color: #DDD; /* Replace with the hex code or name of your desired darker color */
                               /* For example, if your h1 is #DDD, maybe this is #AAA or #999 */
-      font-size: 0.85em;  
-    }/* Makes it 85% of the parent h1's font size. Adjust as needed. */
+      font-size: 2.85em;  
+    }
                               
     .endpoints {
       padding-left: 10px;
