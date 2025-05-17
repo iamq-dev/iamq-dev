@@ -1,0 +1,382 @@
+{
+  "header": {
+    "name": "Quince Fennell",
+    "titles": [
+      "Cybersecurity",
+      "Programming",
+      "Game Developent",
+      "Sysadmin"
+    ],
+    "contact": {
+      "email": "q@iamq.dev",
+      "linkedin": "https://www.linkedin.com/in/iamq-dev/",
+      "portfolio": "https://www.iamq.dev/projects"
+    },
+    "locationContext": "Remote Work Enthusiast",
+    "summary": "An accomplished cybersecurity professional with a unique background in game development, offering a blend of technical skills in both areas. Currently excelling in the role of a Cybersecurity Specialist, with a proven track record in managing security systems, developing cybersecurity policies, and educating staff on security protocols. Prior experience in game development and programming, with a particular focus on Virtual Reality (VR) games on the Unreal Engine platform, adds a creative edge to my problem-solving abilities. Proficient in a wide range of hardware and software tools, and always ready to leverage these skills to ensure optimal security and functionality."
+  },
+  "workExperience": [
+    {
+      "jobTitle": "Cybersecurity Specialist",
+      "companyName": "Rogers State University",
+      "companyURL": "https://www.rsu.edu",
+      "location": "Claremore, OK",
+      "dateRange": "2020 - Present",
+      "description": "As a Cybersecurity Specialist, my role encompassed proactively identifying and mitigating security vulnerabilities, implementing protective measures, monitoring network activity for potential threats, and responding to and resolving security incidents to safeguard organizational systems and data.",
+      "items": [
+        {
+          "title": "Governance and Compliance",
+          "description": "I played a pivotal role in establishing and maintaining security policies, conducting risk assessments, implementing security controls, and ensuring compliance with industry regulations and best practices.",
+          "items": [
+            {
+              "title": "Policy and Documentation",
+              "description": "",
+              "items": [
+                "In the area of policy, I took the NIST cybersecurity policy template as a foundation and meticulously broke it down into categories. I then connected related policies, ensuring a logical flow and interconnectedness between them. To enhance accessibility and ease of navigation, I converted the policies into markdown format and incorporated internal links, allowing for seamless navigation between different sections and policies. This approach facilitated efficient referencing and made it akin to Browse a well-structured and interconnected knowledge base, similar to navigating through a Wikipedia page.",
+                "Migrated the policy database to Confluence by Atlassian, leveraging its robust features for enhanced connectivity with a ticketing system and documentation database. This integration streamlined access to policies and facilitated efficient collaboration and knowledge sharing.",
+                "Built guest accounts for third parties, fostering seamless cooperation and enabling them to access relevant resources and contribute to collaborative efforts in a secure and controlled manner.",
+                "Maintained version control for logging purposes, ensuring accurate and comprehensive tracking of policy revisions, updates, and historical changes for audit and compliance purposes.",
+                "Developed standardized templates to ensure consistency in policy structure, formatting, and content across the organization, promoting clarity and ease of understanding while adhering to industry best practices and compliance requirements."
+              ]
+            },
+            {
+              "title": "Procedure and Documentation",
+              "description": "",
+              "items": [
+                "Collaborated with the team to efficiently migrate decades of knowledge from an unorganized folder structure into a centralized Confluence database, streamlining access and ensuring a comprehensive and easily accessible knowledge repository.",
+                "Developed standardized templates for documenting procedures, ensuring consistency in format, content, and terminology, while promoting clarity and ease of understanding.",
+                "Implemented a robust tagging system within the documentation database, enabling efficient searching and retrieval of relevant information, contributing to improved productivity and knowledge sharing.",
+                "Integrated the procedure documentation directly with the ticketing and policy systems, establishing a seamless connection that facilitated streamlined workflows and enhanced cross-functional collaboration."
+              ]
+            },
+            "Worked with various regulations including GLBA, HIPAA, PCI, and FERPA.",
+            "Developed and conducted cybersecurity training programs for employees to promote awareness, adherence to security policies, and procedures.",
+            "Collaborated with cross-functional teams to perform security risk assessments, identify vulnerabilities, and recommend remediation strategies.",
+            "Participated in incident response activities, including investigating security breaches, coordinating with stakeholders, and implementing preventive measures.",
+            "Conducted regular security audits and assessments to ensure compliance with regulations and industry standards.",
+            "Contributed to the development and maintenance of a comprehensive information security framework and governance structure.",
+            "Engaged in continuous monitoring of security controls, analyzing logs, and implementing proactive measures to detect and mitigate potential threats.",
+            "Stayed updated on evolving cybersecurity trends, emerging threats, and regulatory changes, incorporating them into governance and compliance practices."
+          ]
+        },
+        {
+          "title": "Systems Security",
+          "description": "Protection of computer systems and networks from threats",
+          "items": [
+            "Penetration Testing Experience: Utilized skills in penetration testing to assess and identify vulnerabilities within systems.",
+            "Okta: Leveraged Okta to manage and secure user authentication and access control.",
+            "1password: Utilized 1password as a password manager to enhance security and streamline access management.",
+            "Palo Alto: Managed Palo Alto firewalls, taking over ownership after a third-party separation with RSU. Organized configurations, implemented object variables for human-readable security rules, and established site-to-site VPN tunnels for connectivity to Azure Active Directory and the Student Management system.",
+            "Vendor Systems Experience: Conducted proof-of-value deployments for various vendor systems, including Horizion3.ai, Checkpoint, Darktrace, and DataDog.",
+            "Manage Engine: Configured Manage Engine tools, including Desktop Central RMM for efficient desktop management and deployed Log 360 SIEM for comprehensive log management and analysis.",
+            {
+              "title": "Azure Active Directory",
+              "items": [
+                "Deployed AD Connect for Hybrid Enviornment",
+                "Deployed Multifactor Authentication",
+                "Deployed Self Service Password Reset",
+                "Deployed SAML Authentication for SAAS vendors",
+                "Deployed Conditional Access Rules",
+                "Deployed Identity Governence and Access Reviews",
+                "Deployed Data Loss Prevention Policy",
+                "Deployed Email Security Policy",
+                "Deployed Microsoft Defender for Endpoint (EDR)(ATP)",
+                "Deployed Privilaged Identity Management Principles",
+                "Deployed Windows Security Policy through Microsoft Defender and Intune",
+                "Deployed Network Security Groups and Virtual Firewall",
+                "Deployed Certificate based API authentication for automation",
+                "Deployed Simulated Phishing Training",
+                "Deployed AAD Domain Services for Secure LDAP Authentication",
+                "Working toward implamenting Vulnerability Management",
+                "Experience with Hardware Authentication"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Systems Administration",
+          "description": "",
+          "items": [
+            "Remote Management and Scripting: Utilized Desktop Central and Level.io for remote management and scripting.",
+            {
+              "title": "Azure",
+              "items": [
+                "Microsoft Intune: Deployed custom provisioning drives for automatic imaging and enrollment of devices, implemented configuration management, deployed applications and Windows updates, and configured both hybrid joined and AAD-only joined devices.",
+                "Azure Active Directory: Utilized scripting for provisioning students from external systems, group assignment based on enrolled classes, and password updates for service and shared accounts. Customized AD Connect attribute sync, gained familiarity with Log Analytics fundamentals and virtual networking, deployed Azure Virtual Desktop including shared host pools, persistent VMs, and remote applications. Developed workflows for image creation and updating, implemented dynamic grouping for automatic application and desktop assignment, and deployed FxLogix."
+              ]
+            },
+            "Active Directory: Managed Active Directory infrastructure.",
+            "Global Policy: Assisted in implamenting and managing global policies.",
+            "DHCP and DNS: Assisted in configuring DHCP and DNS services.",
+            "Print Management: Utilized Uniflow Online Print Management and API scripts for print management, I also have experience with Microsoft Univeral Print.",
+            "Atlassian Tools Suite: Deployed Confluence knowledge databases for documentation and policy, implemented Jira Service Desk for ticketing systems, utilized Atlassian Administration for user provisioning and integration, and gained experience with asset management.",
+            "IIS Website Management: Managed IIS websites for both internal tools and productions systems.",
+            "Configuration Experience: Experience configuring systems like Salesforce, Laserfiche Document Management system, Blackboard.",
+            "Microsoft SQL Database Administration: Administered Microsoft SQL databases for student information systems, various internal systems, and student learning course enviornment."
+          ]
+        }
+      ]
+    },
+    {
+      "jobTitle": "Computer Technician",
+      "companyName": "Rogers State University",
+      "companyURL": "https://www.rsu.edu",
+      "location": "Claremore, OK",
+      "dateRange": "2019 - 2020",
+      "description": "My role involved providing technical support, managing computer hardware and software installations, and troubleshooting network issues.",
+      "items": [
+        "Performed installations, configurations, and maintenance of microcomputer hardware and software.",
+        "Expertly handled networking and phone cable/hardware installation, as well as troubleshooting.",
+        "Provided exceptional L1-L2 tech support, resolving technical issues promptly and effectively.",
+        "Demonstrated excellent customer service skills, ensuring a positive user experience."
+      ]
+    },
+    {
+      "jobTitle": "Freelance Unreal Developer",
+      "companyName": "Bevel VR",
+      "companyURL": "https://www.youtube.com/@bevel8354",
+      "location": "Seattle",
+      "dateRange": "2017 - 2019",
+      "description": "As a Freelance Unreal Developer, I collaborated with clients to design and develop interactive virtual experiences using Unreal Engine, ensured smooth functionality, optimized performance, and delivered visually compelling projects.",
+      "items": [
+        "Developed a Virtual Model Unit that allowed clients to customize and visualize their ideal apartment space, enabling them to make informed purchase decisions. | <a href=\\\"https://www.iamq.dev/projects#h.kp4fp674iwjp\\\">Virtual Model Unit</a>",
+        "Created a Virtual Exam Room where executive-level decision makers could interact with and customize equipment placements, assisting in the design process for hospitals and medical facilities. | <a href=\\\"https://www.iamq.dev/projects#h.4sm6zgyotlpc\\\">Exam Room Configuration</a>",
+        "Designed and implemented a Workflow Simulator that facilitated the examination of traffic flow within building designs, optimizing layouts for optimal efficiency. | <a href=\\\"https://www.iamq.dev/projects#h.kfd8hij1oge9\\\">Workspace Simulation</a>"
+      ]
+    },
+    {
+      "jobTitle": "Lead Unreal Developer",
+      "companyName": "Chronos Global Academy",
+      "companyURL": "https://www.washingtoncompanysearch.com/companies/chronos-global-academy-inc/",
+      "location": "Seattle, WA",
+      "dateRange": "2015 - 2017",
+      "description": "As the Lead Unreal Developer at Chronos, I spearheaded the design and development of immersive virtual experiences using Unreal Engine, leveraging my expertise to guide the team and create visually captivating applications.",
+      "items": [
+        "Developed immersive virtual experiences using Unreal Engine as part of a small team, including a user experience deployed to Samsung GearVR, a mobile phone-based VR platform | <a href=\\\"https://www.viveport.com/apps/81d51b3e-f193-4604-ac5d-40802c24a7dc?hl=en-US\\\">Vr Guest</a>",
+        "Created a VR puzzle game published on Steam, demonstrating proficiency in Unreal Engine and game development. | <a href=\\\"https://store.steampowered.com/app/492850/Astroderps/\\\">Astroderps</a>",
+        "Gained valuable experience and knowledge working with virtual reality technologies and collaborating with a team in a professional environment."
+      ]
+    },
+    {
+      "jobTitle": "Database Analyst, Security Team",
+      "companyName": "Osage Nation Casinos",
+      "companyURL": "https://www.osagecasino.com/",
+      "location": "Tulsa, OK",
+      "dateRange": "2014 - 2015",
+      "description": "Maintain and organize data colected by the security team to produce useful information",
+      "items": [
+        "Oversaw multiple databases and executed security focues software and hardware solutions",
+        "Prepared training sessons, developed technology-based training solutions",
+        "Migrated Decades worth of Excel spreates to a Microsoft Access Database",
+        "Aditionally worked as a security officer and Training Administrator"
+      ]
+    },
+    {
+      "jobTitle": "Archivist Assistant",
+      "companyName": "Northeastern State University",
+      "companyURL": "https://library.nsuok.edu/spc/index",
+      "location": "Tahlequah, OK",
+      "dateRange": "2013",
+      "description": "As an archivist's assistant, I meticulously organized and cataloged archival materials, provided comprehensive support for administrative tasks, and used my skill set to assist the department.",
+      "items": [
+        "Constructed graphics for the university's library using Adobe Suite.",
+        "Worked with NSU President on an animated Christmas card for the community using Adobe After Effects.",
+        "Provided comprehensive support, undertaking administrative and operational tasks.",
+        "Organized archival materials, alphabetizing and categorizing documents for efficient retrieval.",
+        "Managed film strips, including cutting, labeling, and cataloging.",
+        "Assisted with inventory management and maintained accurate records."
+      ]
+    },
+    {
+      "jobTitle": "Additional",
+      "companyName": "",
+      "companyURL": "",
+      "location": "",
+      "dateRange": "",
+      "description": "",
+      "items": [
+        "Tech support",
+        "Advertisement/Menu Design",
+        "Manual labor",
+        "Food and Customer services"
+      ]
+    }
+  ],
+  "technicalProficiency": {
+    "intro": "This section lists the software and systems that I have worked with in the past. I'll keep the ones I know more about at the front of each list.",
+    "categories": [
+      {
+        "name": "OS",
+        "items": [
+          {
+            "name": "Windows",
+            "description": "My current main OS; my current job lives in Windows, so I do as well."
+          },
+          {
+            "name": "Linux",
+            "description": "I ran Linux as my main OS for quite a few years, changing back to Windows for work requirements. Some distros I used are Kali, Arch, #!, and Ubuntu. When I get to building a new machine, I'll be starting fresh with <a href=\\\"https://www.qubes-os.org/\\\">Qubes OS</a>."
+          }
+        ]
+      },
+      {
+        "name": "Software",
+        "items": [
+          {
+            "categoryName": "Creative",
+            "tools": [
+              "Adobe Suite",
+              "Gimp",
+              "Blender",
+              "Cinema4D",
+              "Stability",
+              "Control-Net",
+              "Chitubox"
+            ]
+          },
+          {
+            "categoryName": "IDE",
+            "tools": [
+              "vscode",
+              "nvim"
+            ]
+          },
+          {
+            "categoryName": "Source Control",
+            "tools": [
+              "Git",
+              "Git LFS",
+              "Perforce",
+              "WVS"
+            ]
+          },
+          {
+            "categoryName": "Game Engine",
+            "tools": [
+              "Unreal Engine 5",
+              "Unity"
+            ]
+          },
+          {
+            "categoryName": "Essential",
+            "tools": [
+              "7zip",
+              "Everything",
+              "winget",
+              "AutoHotKey",
+              "PowerToys",
+              "Sysinternals",
+              "Brave (working on transitioning to Nyxt)",
+              "Obs",
+              "Obsidian",
+              "VLC",
+              "MSEdgeRedirect",
+              "1Password",
+              "Ultramon"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Languages",
+        "intro": "Most programming languages follow similar principles; once you abstract those, every other language is just learning syntax. So, I try not to get hooked on any language and flow around based on my current task and interests.",
+        "items": [
+          {
+            "name": "Powershell",
+            "description": "My current bread and butter"
+          },
+          {
+            "name": "Python",
+            "description": "I have a decent grasp of it. This is the language I want to deep dive into for neural networks"
+          },
+          {
+            "name": "C++",
+            "description": "Useful for Unreal Engine"
+          },
+          {
+            "name": "C#",
+            "description": "Useful for Unity"
+          },
+          {
+            "name": "VBA",
+            "description": "Bane of my existence but needed for the fun stuff in Excel"
+          },
+          {
+            "name": "HTML, CSS, JS",
+            "description": "Useful for websites like this one"
+          },
+          {
+            "name": "SQL",
+            "description": "Just know enough to get me in trouble"
+          },
+          {
+            "name": "Lua",
+            "description": "I've dabbled"
+          }
+        ]
+      }
+    ]
+  },
+  "education": [
+    {
+      "degree": "Bachelor of Science: Game Development",
+      "institution": "Rogers State University",
+      "institutionURL": "https://www.rsu.edu",
+      "location": "Claremore, OK",
+      "graduationYear": "2014",
+      "coursework": [
+        "Game Programming I & II",
+        "Game Development Seminar",
+        "Physics for Gaming",
+        "Digital Foundations",
+        "Digital 3D Foundations",
+        "Digital 3D Studio",
+        "Computer Graphics Programming",
+        "Introduction to Modeling & Simulation",
+        "Physics I&II",
+        "Linear Algebra",
+        "Discrete Mathematics"
+      ],
+      "honors": "Game Development Scholarship"
+    }
+  ],
+  "personalExperience": {
+    "summary": "In addition to my professional qualifications, I possess a diverse range of personal interests that fuel my curiosity and drive for continuous learning. From exploring the realm of 3D printing and the intricacies of miniature wargaming to diving into the immersive world of gaming, I find joy in both creative and technical pursuits. Building computer hardware, exploring cloud computing, and tinkering with home lab networking allows me to combine my passion for technology and hands-on problem-solving. Alongside these hobbies, I am deeply fascinated by the realms of art, neural networks, large language models, mathematics, and logic. Additionally, I eagerly engage in the imaginative storytelling of Dungeons and Dragons. These diverse interests reflect my well-rounded nature and drive to continuously explore and discover new realms of knowledge and creativity."
+  },
+  "references": [
+    {
+      "name": "Brian Reeves",
+      "title": "Directory of Information Technology",
+      "organization": "Rogers State University",
+      "organizationURL": "https://www.rsu.edu",
+      "location": "Claremore, OK",
+      "contactURL": "https://www.rsu.edu/directory/brian-reeves/"
+    },
+    {
+      "name": "Ethan Wililams",
+      "title": "Computer Technician",
+      "organization": "Rogers State University",
+      "organizationURL": "https://www.rsu.edu",
+      "location": "Claremore, OK",
+      "contactURL": "https://www.rsu.edu/directory/ethan-williams/"
+    },
+    {
+      "name": "Simon Manning",
+      "title": "Freelance Designer",
+      "organization": "Freelance",
+      "organizationURL": "https://www.simplesimon.space/",
+      "location": "Seattle, WA",
+      "contactURL": "https://www.linkedin.com/in/simonxr/"
+    },
+    {
+      "name": "Christian Jensen",
+      "title": "Systems Database Manager",
+      "organization": "Osage Nation Casinos",
+      "organizationURL": "https://www.osagecasino.com/",
+      "location": "Tulsa, OK",
+      "contactURL": "https://www.linkedin.com/in/christian-e-jensen/"
+    }
+  ],
+  "meta": {
+    "lastUpdated": "2023-07-17T18:50:31"
+  }
+}

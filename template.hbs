@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{header.name}} Resume</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    {{!-- Header Section Start --}}
+    <h1>{{header.name}}</h1>
+    <h2>
+      {{#each header.titles}}
+        {{this}}{{#unless @last}} | {{/unless}}
+      {{/each}}
+    </h2>
+    <p>
+      <a href="mailto:{{header.contact.email}}">{{header.contact.email}}</a> |
+      <a href="{{header.contact.linkedin}}" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+      <a href="{{header.contact.portfolio}}" target="_blank" rel="noopener noreferrer">Portfolio</a>
+      <br>
+      <span class="sub"><strong>{{header.locationContext}}</strong></span>
+    </p>
+    <p>
+      {{{header.summary}}}
+    </p>
+    {{!-- Header Section End --}}
+
+    {{!-- Sidebar - this is static HTML from your original file --}}
+    <div class="sidebar">
+      <button class="btn btn-primary" id="scrollToTopButton">⤒</button>
+      <button class="btn btn-primary" id="closeAllButton">-</button>
+      <br>
+      <button class="btn btn-primary" id="expandAllButton">+</button>
+      <button class="btn btn-primary" id="scrollToBottomButton">⤓</button>
+    </div>
+
+  {{!-- Work Experience Section Start --}}
+    {{#if workExperience}}
+    <div class="card">
+      <div class="card-header" id="heading-WorkExperience">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-WorkExperience" aria-expanded="false" aria-controls="collapse-WorkExperience">
+            <span class="btn-icon">+</span>
+            <span class="btn-icon-expanded">-</span>
+            <span class="btn-txt"> Work Experience</span>
+          </button>
+        </h5>
+      </div>
+      <div id="collapse-WorkExperience" class="collapse" aria-labelledby="heading-WorkExperience" data-parent="#accordion"> {{!-- Assuming a main #accordion div wraps all top-level sections, or adjust data-parent as needed --}}
+        <div class="card-body">
+          {{#each workExperience}}
+            {{!-- Each 'this' here is a job object from the workExperience array --}}
+            <div class="card"> {{!-- This is a Layer 2 card for each job --}}
+              <div class="card-header" id="{{safeId 'heading-job' @index}}">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#{{safeId 'collapse-job' @index}}" aria-expanded="false" aria-controls="{{safeId 'collapse-job' @index}}">
+                    <span class="btn-icon">+</span>
+                    <span class="btn-icon-expanded">-</span>
+                    <span class="title-line">{{this.jobTitle}}</span>
+                  </button>
+                  <br>
+                  <span class="subtitle-line">
+                    {{#if this.companyURL}}<a href="{{this.companyURL}}" target="_blank" rel="noopener noreferrer">{{/if}}{{this.companyName}}{{#if this.companyURL}}</a>{{/if}}{{#if this.location}} | {{this.location}}{{/if}}{{#if this.dateRange}} | {{formatDateRange this.dateRange}}{{/if}}
+                  </span>
+                </h5>
+              </div>
+              <div id="{{safeId 'collapse-job' @index}}" class="collapse" aria-labelledby="{{safeId 'heading-job' @index}}"> {{!-- data-parent might point to #collapse-WorkExperience or be omitted for independent behavior --}}
+                <div class="card-body">
+                  {{#if this.description}}
+                    <span class="description">{{{this.description}}}</span>
+                  {{/if}}
+                  {{#if this.items}}
+                    {{!-- Here we use the custom helper for nested responsibilities/details --}}
+                    {{{renderNestedItems this.items (safeId "job" @index) 0 'no-bullets'}}}
+                  {{/if}}
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    {{!-- Work Experience Section End --}}
+    
+    {{!-- Technical Proficiency Section will go here --}}
+    {{!-- Education Section will go here --}}
+    {{!-- Personal Experience Section will go here --}}
+    {{!-- References Section will go here --}}
+
+    <span class="update">last-update: {{meta.lastUpdated}}</span>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    // sidebar
+    $(document).ready(function () {
+      $('#closeAllButton').click(function () {
+        $('.collapse').collapse('hide');
+      });
+      $('#expandAllButton').click(function () {
+        $('.collapse').collapse('show');
+      });
+      $('#scrollToTopButton').click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+      });
+      $('#scrollToBottomButton').click(function () {
+        $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
+      });
+    });
+</body>
+</html>
