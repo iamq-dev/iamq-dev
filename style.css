@@ -1,12 +1,12 @@
 <style>
     h1 {
       font: x-large;
-      color: #FFF;
+      color: rgb(0, 0, 0);
       font-size: 4em;
     }
 
     h1 .name-detail {
-      color: #000; /* Replace with the hex code or name of your desired darker color */
+      color: rgb(200, 200, 200); /* Replace with the hex code or name of your desired darker color */
                               /* For example, if your h1 is #DDD, maybe this is #AAA or #999 */
       font-size: 0.85em;  
     }
