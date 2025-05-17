@@ -83,7 +83,68 @@
     </div>
     {{/if}}
     {{!-- Work Experience Section End --}}
-    {{!-- Technical Proficiency Section will go here --}}
+    {{!-- Technical Proficiency Section Start --}}
+    {{#if technicalProficiency}}
+    <div class="card">
+      <div class="card-header" id="heading-technical-proficiency">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-technical-proficiency" aria-expanded="false" aria-controls="collapse-technical-proficiency">
+            <span class="btn-icon">+</span>
+            <span class="btn-icon-expanded">-</span>
+            <span class="title-line"> {{technicalProficiency.titleধর্ম "Technical Proficiency"}}</span>
+          </button>
+        </h5>
+      </div>
+      <div id="collapse-technical-proficiency" class="collapse" aria-labelledby="heading-technical-proficiency" data-parent="#accordion">
+        <div class="card-body">
+          {{#if technicalProficiency.intro}}
+            <span class="description">{{{technicalProficiency.intro}}}</span>
+          {{/if}}
+
+          <ul class="endpoints">
+            {{#each technicalProficiency.categories}}
+              <li>
+                <strong>{{this.name}}:</strong>
+                {{#if this.intro}}
+                  <p style="margin-left: 20px; font-style: italic;">{{{this.intro}}}</p> {{!-- Indented paragraph for category intro --}}
+                {{/if}}
+
+                {{!-- For categories like OS and Languages with name/description items --}}
+                {{#if this.items}}
+                  <ul class="endpoints">
+                    {{#each this.items}}
+                      <li>
+                        {{#if this.name}}
+                          <strong>{{{this.name}}}:</strong> {{{this.description}}}
+                        {{else}}
+                          {{{this}}} {{!-- If item is just a string --}}
+                        {{/if}}
+                      </li>
+                    {{/each}}
+                  </ul>
+                {{/if}}
+
+                {{!-- For categories like Software with subCategories and tool lists --}}
+                {{#if this.subCategories}}
+                  <ul class="endpoints">
+                    {{#each this.subCategories}}
+                      <li>
+                        <strong>{{{this.name}}}:</strong>
+                        {{#each this.tools}}
+                          {{{this}}}{{#unless @last}}, {{/unless}}
+                        {{/each}}
+                      </li>
+                    {{/each}}
+                  </ul>
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    {{!-- Technical Proficiency Section End --}}
     {{!-- Education Section will go here --}}
     {{!-- Personal Experience Section will go here --}}
     {{!-- References Section will go here --}}
