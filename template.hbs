@@ -187,7 +187,29 @@
     </div>
     {{/if}}
     {{!-- Education Section End --}}
-    {{!-- Personal Experience Section will go here --}}
+    {{!-- Personal Experience Section Start --}}
+    {{#if personalExperience}}
+    <div class="card">
+      <div class="card-header" id="heading-Personal-experience">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-Personal-experience" aria-expanded="false" aria-controls="collapse-Personal-experience">
+            <span class="btn-icon">+</span>
+            <span class="btn-icon-expanded">-</span>
+            <span class="title-line">{{#if personalExperience.title}}{{personalExperience.title}}{{else}}Personal Experience{{/if}}</span>
+          </button>
+        </h5>
+      </div>
+      <div id="collapse-Personal-experience" class="collapse" aria-labelledby="heading-Personal-experience" data-parent="#accordion">
+        <div class="card-body">
+          {{#if personalExperience.subtitle}} {{!-- Optional: if you add a subtitle to your JSON --}}
+            <span class="description">{{{personalExperience.subtitle}}}</span>
+          {{/if}}
+          {{{personalExperience.summary}}} {{!-- Use triple-stash if summary might contain HTML or needs to preserve formatting like <p> tags from JSON --}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    {{!-- Personal Experience Section End --}}
     {{!-- References Section will go here --}}
     <span class="update">last-update: {{meta.lastUpdated}}</span>
   </div>
