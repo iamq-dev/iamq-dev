@@ -91,6 +91,7 @@
           <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-technical-proficiency" aria-expanded="false" aria-controls="collapse-technical-proficiency">
             <span class="btn-icon">+</span>
             <span class="btn-icon-expanded">-</span>
+            {{!-- Corrected title rendering: Uses technicalProficiency.title or defaults to "Technical Proficiency" --}}
             <span class="title-line"> {{#if technicalProficiency.title}}{{technicalProficiency.title}}{{else}}Technical Proficiency{{/if}}</span>
           </button>
         </h5>
@@ -104,35 +105,29 @@
           <ul class="endpoints">
             {{#each technicalProficiency.categories}}
               <li>
-                <strong>{{this.name}}:</strong>
+                <strong>{{{this.name}}}:</strong> {{!-- Display category name e.g., OS, Software, Languages --}}
                 {{#if this.intro}}
-                  <p style="margin-left: 20px; font-style: italic;">{{{this.intro}}}</p> {{!-- Indented paragraph for category intro --}}
+                  <p style="margin-left: 20px; font-style: italic;">{{{this.intro}}}</p>
                 {{/if}}
 
-                {{!-- For categories like OS and Languages with name/description items --}}
+                {{!-- Unified loop to handle items within each category --}}
                 {{#if this.items}}
                   <ul class="endpoints">
                     {{#each this.items}}
                       <li>
-                        {{#if this.name}}
+                        {{#if this.categoryName}}
+                          {{!-- This block handles items from your "Software" category structure --}}
+                          <strong>{{{this.categoryName}}}:</strong>
+                          {{#each this.tools}}
+                            {{{this}}}{{#unless @last}}, {{/unless}}
+                          {{/each}}
+                        {{else if this.name}}
+                          {{!-- This block handles items from your "OS" and "Languages" structure --}}
                           <strong>{{{this.name}}}:</strong> {{{this.description}}}
                         {{else}}
-                          {{{this}}} {{!-- If item is just a string --}}
+                          {{!-- Fallback for simple string items (if any) --}}
+                          {{{this}}}
                         {{/if}}
-                      </li>
-                    {{/each}}
-                  </ul>
-                {{/if}}
-
-                {{!-- For categories like Software with subCategories and tool lists --}}
-                {{#if this.subCategories}}
-                  <ul class="endpoints">
-                    {{#each this.subCategories}}
-                      <li>
-                        <strong>{{{this.name}}}:</strong>
-                        {{#each this.tools}}
-                          {{{this}}}{{#unless @last}}, {{/unless}}
-                        {{/each}}
                       </li>
                     {{/each}}
                   </ul>
