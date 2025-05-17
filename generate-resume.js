@@ -12,30 +12,27 @@ Handlebars.registerHelper('formatDateRange', function(dateRange) {
   return dateRange;
 });
 
-// More robust safeId helper with logging for debugging
+// Temporary diagnostic safeId helper
 Handlebars.registerHelper('safeId', function(...args) {
-  const options = args.pop(); // Handlebars options object always last
-  // Filter out null, undefined, or effectively empty string parts
-  const parts = args.filter(part => part !== null && typeof part !== 'undefined' && part.toString().trim() !== '');
+  const options = args.pop(); // Pop the options object
+  // Log exactly what args are before joining (after pop)
+  console.log(`safeId_DIAGNOSTIC_ARGS_BEFORE_JOIN: [${args.map(String).join(' ::: ')}]`);
 
-  if (parts.length === 0) {
-    console.warn("safeId CALLED WITH NO VALID PARTS, returning 'default-id-random'");
-    return `default-id-${Math.random().toString(36).substring(2, 7)}`; // Ensure some uniqueness
-  }
+  // Directly join the arguments that were passed (excluding options)
+  // No filtering for this test.
+  let idString = args.join('-'); 
+  
+  console.log(`safeId_DIAGNOSTIC_JOINED: "${idString}"`);
 
-  let idString = parts.join('-');
-  idString = idString.replace(/\s+/g, '-') // Replace spaces with hyphens
-                     .replace(/[^a-zA-Z0-9-_]/g, '') // Remove invalid characters
-                     .toLowerCase();
-
-  // Remove leading/trailing hyphens that might result from empty parts or stripping
+  // Minimal sanitization for this test
+  idString = idString.replace(/[^a-zA-Z0-9-_]/g, '').toLowerCase();
   idString = idString.replace(/^-+|-+$/g, '');
 
-  if (idString === '') {
-    console.warn(`safeId: Resulting ID string is empty after processing parts: [${args.join(', ')}]. Using random fallback.`);
-    return `default-id-empty-${Math.random().toString(36).substring(2, 7)}`;
+
+  if (idString === "") {
+      idString = "safeid-was-empty-after-join-and-sanitize";
   }
-  // console.log(`safeId: input parts [${args.join(', ')}] -> output '${idString}'`); // Optional: log successful ID generations
+  console.log(`safeId_DIAGNOSTIC_RETURN: "${idString}"`);
   return idString;
 });
 
