@@ -35,7 +35,55 @@
       <button class="btn btn-primary" id="scrollToBottomButton">⤓</button>
     </div>
 
-    {{!-- Work Experience Section will go here --}}
+  {{!-- Work Experience Section Start --}}
+    {{#if workExperience}}
+    <div class="card">
+      <div class="card-header" id="heading-WorkExperience">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-WorkExperience" aria-expanded="false" aria-controls="collapse-WorkExperience">
+            <span class="btn-icon">+</span>
+            <span class="btn-icon-expanded">-</span>
+            <span class="btn-txt"> Work Experience</span>
+          </button>
+        </h5>
+      </div>
+      <div id="collapse-WorkExperience" class="collapse" aria-labelledby="heading-WorkExperience" data-parent="#accordion"> {{!-- Assuming a main #accordion div wraps all top-level sections, or adjust data-parent as needed --}}
+        <div class="card-body">
+          {{#each workExperience}}
+            {{!-- Each 'this' here is a job object from the workExperience array --}}
+            <div class="card"> {{!-- This is a Layer 2 card for each job --}}
+              <div class="card-header" id="{{safeId 'heading-job' @index}}">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#{{safeId 'collapse-job' @index}}" aria-expanded="false" aria-controls="{{safeId 'collapse-job' @index}}">
+                    <span class="btn-icon">+</span>
+                    <span class="btn-icon-expanded">-</span>
+                    <span class="title-line">{{this.jobTitle}}</span>
+                  </button>
+                  <br>
+                  <span class="subtitle-line">
+                    {{#if this.companyURL}}<a href="{{this.companyURL}}" target="_blank" rel="noopener noreferrer">{{/if}}{{this.companyName}}{{#if this.companyURL}}</a>{{/if}}{{#if this.location}} | {{this.location}}{{/if}}{{#if this.dateRange}} | {{formatDateRange this.dateRange}}{{/if}}
+                  </span>
+                </h5>
+              </div>
+              <div id="{{safeId 'collapse-job' @index}}" class="collapse" aria-labelledby="{{safeId 'heading-job' @index}}"> {{!-- data-parent might point to #collapse-WorkExperience or be omitted for independent behavior --}}
+                <div class="card-body">
+                  {{#if this.description}}
+                    <span class="description">{{{this.description}}}</span>
+                  {{/if}}
+                  {{#if this.items}}
+                    {{!-- Here we use the custom helper for nested responsibilities/details --}}
+                    {{{renderNestedItems this.items (safeId "job" @index) 0 'no-bullets'}}}
+                  {{/if}}
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    {{!-- Work Experience Section End --}}
+    
     {{!-- Technical Proficiency Section will go here --}}
     {{!-- Education Section will go here --}}
     {{!-- Personal Experience Section will go here --}}
