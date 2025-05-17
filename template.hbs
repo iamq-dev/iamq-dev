@@ -210,7 +210,51 @@
     </div>
     {{/if}}
     {{!-- Personal Experience Section End --}}
-    {{!-- References Section will go here --}}
+    {{!-- References Section Start --}}
+    {{#if references}}
+    <div class="card">
+      <div class="card-header" id="heading-References"> {{!-- Static ID is fine --}}
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-References" aria-expanded="false" aria-controls="collapse-References">
+            <span class="btn-icon">+</span>
+            <span class="btn-icon-expanded">-</span>
+            <span class="title-line">References</span> {{!-- Or {{referencesSectionTitle}} if you add one to JSON --}}
+          </button>
+        </h5>
+      </div>
+      <div id="collapse-References" class="collapse" aria-labelledby="heading-References" data-parent="#accordion">
+        <div class="card-body">
+          {{#each references}}
+            <div class="reference-entry"> {{!-- Optional: Wrapper div for styling each reference --}}
+              {{#if this.contactURL}}
+                <a href="{{this.contactURL}}" target="_blank" rel="noopener noreferrer"><strong>{{{this.name}}}</strong></a>
+              {{else}}
+                <strong>{{{this.name}}}</strong>
+              {{/if}}
+              {{#if this.title}}
+                {{{this.title}}}
+              {{/if}}
+              
+              <p style="margin-bottom: 0.5rem;"> {{!-- Added a little bottom margin to the paragraph --}}
+                {{#if this.organizationURL}}
+                  <a href="{{this.organizationURL}}" target="_blank" rel="noopener noreferrer">{{{this.organization}}}</a>
+                {{else}}
+                  {{{this.organization}}}
+                {{/if}}
+                {{#if this.location}}
+                  | {{this.location}}
+                {{/if}}
+              </p>
+            </div>
+            {{#unless @last}}
+              <br> {{!-- Simple separator, or use <hr> for a more prominent one --}}
+            {{/unless}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    {{!-- References Section End --}}
     <span class="update">last-update: {{meta.lastUpdated}}</span>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
