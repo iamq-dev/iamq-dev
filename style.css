@@ -1,0 +1,238 @@
+<style>
+    h1 {
+      font: x-large;
+      font-size: 4em;
+    }
+
+    .endpoints {
+      padding-left: 10px;
+    }
+    .no-bullets {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .no-bullets1 li::before {
+      content: "|";
+      display: inline-flex;
+      margin-right: 0px;
+    }
+
+    .btn {
+      text-align: left;
+      width: 90%;
+      padding: 0;
+    }
+
+    .btn-text {
+      display: inline-block;
+      width: calc(100% - 20px);
+      /* Adjust the padding as needed */
+      padding-right: 5px;
+      /* Adjust the padding as needed */
+    }
+
+    .btn-icon {
+      display: inline-block;
+      width: 20px;
+      /* Adjust the size of the icon */
+      text-align: right;
+    }
+
+    .btn:hover .btn-text {
+      text-decoration: underline;
+    }
+
+    .update {
+      color: rgb(56, 56, 56)
+    }
+
+    body {
+      background-color: rgb(24, 26, 27);
+      color: #ddd;
+      font-family: monospace;
+      font: "system-ui";
+    }
+
+    .card-header {
+      padding: 1px;
+      /* Remove padding */
+      margin: 5;
+      /* Remove margin */
+      text-indent: 0px;
+      list-style: none;
+    }
+
+    .mb-0 {
+      margin-bottom: 10 !important;
+      /* Remove bottom margin */
+    }
+
+    .title-line {
+      text-align: left;
+    }
+
+    .subtitle-line {
+      text-align: left;
+      font-size: .8em;
+    }
+
+    .description {
+      font-size: 1em;
+      margin-top: 0;
+      color: #97ddee;
+    }
+
+    /* Depth 1 */
+    .card {
+      background-color: rgb(30, 32, 33);
+      border: none;
+      margin-bottom: 6px;
+      padding: 4px;
+    }
+
+    .card-header {
+      background-color: rgb(30, 32, 33);
+      border-bottom: none;
+      font-size: .1em;
+    }
+
+    .card-header .btn {
+      text-decoration: none;
+      color: #47a8cf;
+      padding: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: 1.2em;
+      /* Adjust this to change the size of the text */
+      margin: 1px;
+      /* Adjust this to change the space around the text */
+    }
+
+    /* Depth 2 */
+    .card .card {
+      background-color: rgb(38, 40, 41);
+      padding: 1px;
+      font-size: 1em;
+    }
+
+    .card .card .card-header {
+      background-color: rgb(38, 40, 41);
+      font-size: 1m;
+    }
+
+    .card .card .card-header .btn {
+      color: #5ca8cd;
+      padding: 4px;
+      /* Adjust this to change the space around the text */
+      font-size: 1em;
+      /* Adjust this to change the size of the text */
+    }
+
+    /* Depth 3 */
+    .card .card .card {
+      background-color: rgb(46, 48, 49);
+      padding: 1px;
+      font-size: 1em;
+    }
+
+    .card .card .card .card-header {
+      background-color: rgb(46, 48, 49);
+      font-size: 1em;
+    }
+
+    .card .card .card .card-header .btn {
+      color: #72a8c2;
+      padding: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: 1em;
+      /* Adjust this to change the size of the text */
+    }
+
+    /* Depth 4 */
+    .card .card .card .card {
+      background-color: rgb(54, 56, 57);
+      padding: 1px;
+      margin: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: 1em;
+    }
+
+    .card .card .card .card .card-header {
+      background-color: rgb(54, 56, 57);
+      margin: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: 1em;
+    }
+
+    .card .card .card .card .card-header .btn {
+      color: #99a9b1;
+      padding: 1px;
+      margin: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: .8em;
+      /* Adjust this to change the size of the text */
+    }
+
+    /* Depth 5 */
+    .card .card .card .card .card {
+      background-color: rgb(62, 64, 65);
+      padding: 1px;
+      margin: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: .8em;
+    }
+
+    .card .card .card .card .card .card-header {
+      background-color: rgb(62, 64, 65);
+    }
+
+    .card .card .card .card .card .card-header .btn {
+      color: #c1c8cb;
+      padding: 1px;
+      margin: 1px;
+      /* Adjust this to change the space around the text */
+      font-size: .8em;
+      /* Adjust this to change the size of the text */
+    }
+
+    .container {
+      left: auto;
+      font-size: large;
+    }
+
+    .sub {
+      font-size: .7em;
+      color: #50768a;
+    }
+
+    .sidebar button {
+      display: block;
+      width: 100%;
+      margin-bottom: 1px;
+      background-color: rgb(36, 36, 36);
+      color: rgb(255, 255, 255);
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+
+    .btn-icon {
+      display: inline;
+    }
+
+    .btn-icon-expanded {
+      display: none;
+    }
+
+    .btn[aria-expanded="true"] .btn-icon {
+      display: none;
+    }
+
+    .btn[aria-expanded="true"] .btn-icon-expanded {
+      display: inline;
+    }
+  </style>
