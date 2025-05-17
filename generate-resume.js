@@ -11,20 +11,21 @@ Handlebars.registerHelper('formatDateRange', function(dateRange) {
   return dateRange;
 });
 
-// REVISED safeId helper to correctly handle calls from templates and from JS
+// In generate-resume.js - REPLACE your current safeId helper with this one:
+
 Handlebars.registerHelper('safeId', function(...inputArgs) {
-  // The last argument Handlebars passes is the options object
+  // The last argument Handlebars passes when called from a template is the options object
   const options = inputArgs.pop(); 
   let parts;
 
-  // If called from JS with a single array as the first argument (e.g., safeId(myArrayParts))
-  // inputArgs would be [myArrayParts] (after options was popped)
+  // Check if the helper was called from JavaScript with a pre-formed array as the first argument
+  // e.g., Handlebars.helpers.safeId(myArrayOfIdParts)
   if (inputArgs.length === 1 && Array.isArray(inputArgs[0])) {
     parts = inputArgs[0];
     // console.log(`safeId_DEBUG: Called from JS with pre-formed array: [${parts.map(String).join(', ')}]`);
   } else {
     // Called from template with multiple arguments (e.g., {{safeId 'val1' 'val2' @index}})
-    // inputArgs now holds these individual arguments.
+    // inputArgs now holds these individual arguments (e.g., ['val1', 'val2', 0])
     parts = inputArgs;
     // console.log(`safeId_DEBUG: Called from template with individual args: [${parts.map(String).join(', ')}]`);
   }
@@ -34,6 +35,7 @@ Handlebars.registerHelper('safeId', function(...inputArgs) {
     return `default-id-parts-empty-${Math.random().toString(36).substring(2, 9)}`;
   }
 
+  // Filter out null, undefined, or effectively empty string parts from the 'parts' array
   const validParts = parts.filter(part => part !== null && typeof part !== 'undefined' && String(part).trim() !== '');
   // console.log(`safeId_DEBUG: validParts after filter: [${validParts.join(', ')}] (length: ${validParts.length})`);
 
