@@ -4,7 +4,6 @@ const Handlebars = require('handlebars');
 
 // --- Handlebars Helpers ---
 
-// Helper to format date ranges (e.g., "Present" -> current year)
 Handlebars.registerHelper('formatDateRange', function(dateRange) {
   if (typeof dateRange === 'string') {
     return dateRange.replace('Present', new Date().getFullYear());
@@ -12,60 +11,72 @@ Handlebars.registerHelper('formatDateRange', function(dateRange) {
   return dateRange;
 });
 
-// Temporary diagnostic safeId helper
-Handlebars.registerHelper('safeId', function(...args) {
-  const options = args.pop(); // Pop the options object
-  // Log exactly what args are before joining (after pop)
-  console.log(`safeId_DIAGNOSTIC_ARGS_BEFORE_JOIN: [${args.map(String).join(' ::: ')}]`);
-
-  // Directly join the arguments that were passed (excluding options)
-  // No filtering for this test.
-  let idString = args.join('-'); 
-  
-  console.log(`safeId_DIAGNOSTIC_JOINED: "${idString}"`);
-
-  // Minimal sanitization for this test
-  idString = idString.replace(/[^a-zA-Z0-9-_]/g, '').toLowerCase();
-  idString = idString.replace(/^-+|-+$/g, '');
+// MODIFIED safeId: Expects an array of ID parts as the first argument.
+// The 'options' argument is standard for Handlebars helpers but might be undefined if called directly from JS.
+Handlebars.registerHelper('safeId', function(partsArray, options) {
+  // console.log(`safeId_ENTER: typeof partsArray = ${typeof partsArray}, isArray = ${Array.isArray(partsArray)}`);
+  // if (Array.isArray(partsArray)) {
+  //   console.log(`safeId_ENTER: partsArray = [${partsArray.join(', ')}]`);
+  // }
 
 
-  if (idString === "") {
-      idString = "safeid-was-empty-after-join-and-sanitize";
+  if (!partsArray || !Array.isArray(partsArray) || partsArray.length === 0) {
+    console.warn("safeId: partsArray is invalid or empty. Returning random default ID.");
+    return `default-id-invalidargs-${Math.random().toString(36).substring(2, 9)}`;
   }
-  console.log(`safeId_DIAGNOSTIC_RETURN: "${idString}"`);
+
+  // Filter out null, undefined, or effectively empty string parts from the provided array
+  const validParts = partsArray.filter(part => part !== null && typeof part !== 'undefined' && String(part).trim() !== '');
+
+  // console.log(`safeId_DEBUG: validParts after filter: [${validParts.join(', ')}] (length: ${validParts.length})`);
+
+  if (validParts.length === 0) {
+    console.warn("safeId: No valid parts after filter. Returning random default ID.");
+    return `default-id-novalidparts-${Math.random().toString(36).substring(2, 9)}`;
+  }
+
+  let idString = validParts.join('-');
+  // console.log(`safeId_DEBUG: Joined string: "${idString}"`);
+
+  // Sanitize
+  idString = idString.replace(/\s+/g, '-')
+                     .replace(/[^a-zA-Z0-9-_]/g, '')
+                     .toLowerCase();
+  idString = idString.replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
+
+  if (idString === '') {
+    console.warn(`safeId: Resulting ID is empty after sanitization. Original validParts: [${validParts.join(', ')}]. Using random default ID.`);
+    return `default-id-empty-${Math.random().toString(36).substring(2, 9)}`;
+  }
+  // console.log(`safeId_RETURN: final idString: "${idString}"`);
   return idString;
 });
 
-// Helper for basic equality check
-Handlebars.registerHelper('eq', function(arg1, arg2) {
-  return arg1 === arg2;
-});
+Handlebars.registerHelper('eq', function(arg1, arg2) { return arg1 === arg2; });
+Handlebars.registerHelper('lastUpdated', function() { return new Date().toISOString(); });
 
-// Recursive helper to render nested items with extensive logging for debugging ID issues
 Handlebars.registerHelper('renderNestedItems', function(items, baseId, depth = 0, listClass = 'endpoints') {
-  if (!items || items.length === 0) {
+  if (!items || !Array.isArray(items) || items.length === 0) {
+    // console.log(`renderNestedItems: items is null, not an array, or empty. baseId="${baseId}", depth=${depth}. Returning empty string.`);
     return '';
   }
 
-  // Logging the entry of this function call
-  // console.log(`renderNestedItems CALLED: baseId='${baseId}', depth=${depth}, items.length=${items.length}, listClass='${listClass}'`);
+  // console.log(`RENDER_NESTED_ITEMS_ENTRY: baseId="${baseId}", depth=${depth}, num_items=${items.length}`);
 
   let html = `<ul class="${listClass}">`;
-  items.forEach((itemData, itemIndex) => { // itemIndex is crucial
-    // Log for each item in the loop
-    // console.log(`  LOOPING in renderNestedItems: itemIndex=${itemIndex}, current baseId='${baseId}', depth=${depth}, itemData.title='${itemData.title || 'N/A (string item)'}'`);
+  items.forEach((itemData, itemIndex) => {
+    // console.log(`  ITEM_LOOP_ENTRY: itemIndex=${itemIndex}, depth=${depth}, baseId="${baseId}", itemData.title="${itemData.title || '(string item)'}"`);
+    // console.log(`    PRE_ID_PARTS: baseId="${baseId}", 'item', String(${depth}), String(${itemIndex})`);
+    
+    const idPartsArray = [baseId, 'item', String(depth), String(itemIndex)];
+    const itemId = Handlebars.helpers.safeId(idPartsArray); // Call safeId with the array of parts
 
-    // Construct a literal part of the ID that includes depth and index to ensure uniqueness
-    const idLiteralSegment = `d${depth}-i${itemIndex}`;
-    const itemId = Handlebars.helpers.safeId(baseId, idLiteralSegment); // Pass combined literal
-
-    // Log the generated itemId and its components
-    console.log(`    GENERATED itemId for renderNestedItems: '${itemId}' (components: baseId='${baseId}', literalSegment='${idLiteralSegment}')`);
+    console.log(`    CALCULATED_ITEM_ID: "${itemId}" (from parts: [${idPartsArray.join(', ')}]) for item titled "${itemData.title || '(string item)'}"`);
 
     html += '<li>';
     if (typeof itemData === 'string') {
-      html += itemData; // Assuming itemData string can contain HTML and should be rendered as is
-    } else { // It's an object, render as a card
+      html += itemData;
+    } else {
       const collapseId = `collapse-${itemId}`;
       const headingId = `heading-${itemId}`;
 
@@ -84,10 +95,9 @@ Handlebars.registerHelper('renderNestedItems', function(items, baseId, depth = 0
             <div class="card-body">
       `;
       if (itemData.description) {
-        html += `<span class="description">${itemData.description}</span>`; // Assuming description can contain HTML
+        html += `<span class="description">${itemData.description}</span>`;
       }
-      if (itemData.items && itemData.items.length > 0) {
-        // Recursive call: baseId for children is the current unique itemId. Depth is incremented.
+      if (itemData.items && Array.isArray(itemData.items) && itemData.items.length > 0) {
         html += Handlebars.helpers.renderNestedItems(itemData.items, itemId, depth + 1, 'endpoints');
       }
       html += `
@@ -102,75 +112,61 @@ Handlebars.registerHelper('renderNestedItems', function(items, baseId, depth = 0
   return new Handlebars.SafeString(html);
 });
 
-// Helper to generate the last updated timestamp
-Handlebars.registerHelper('lastUpdated', function() {
-  return new Date().toISOString();
-});
-
-
-// --- Main Generation Logic ---
+// --- Main Generation Logic --- (Keep this as it was, with its own logs)
 async function generateResume() {
   try {
     console.log('Starting resume generation...');
-    // 1. Read JSON data
     const jsonDataPath = path.join(__dirname, 'resume_data.json');
-    console.log(`Attempting to read JSON data from: ${jsonDataPath}`);
+    // console.log(`Attempting to read JSON data from: ${jsonDataPath}`);
     const jsonStr = await fs.readFile(jsonDataPath, 'utf-8');
     const data = JSON.parse(jsonStr);
-    console.log('Successfully read and parsed resume_data.json.');
+    // console.log('Successfully read and parsed resume_data.json.');
 
-    // Optionally update the 'meta.lastUpdated' field in the data object before rendering
-    data.meta = data.meta || {}; // Ensure meta object exists
+    data.meta = data.meta || {};
     data.meta.lastUpdated = Handlebars.helpers.lastUpdated();
-    console.log(`Set meta.lastUpdated to: ${data.meta.lastUpdated}`);
+    // console.log(`Set meta.lastUpdated to: ${data.meta.lastUpdated}`);
 
-    // 2. Read Handlebars template
     const templatePath = path.join(__dirname, 'template.hbs');
-    console.log(`Attempting to read Handlebars template from: ${templatePath}`);
+    // console.log(`Attempting to read Handlebars template from: ${templatePath}`);
     const templateStr = await fs.readFile(templatePath, 'utf-8');
-    console.log('Successfully read template.hbs.');
+    // console.log('Successfully read template.hbs.');
 
-    // 3. Compile template
-    console.log('Compiling Handlebars template...');
+    // console.log('Compiling Handlebars template...');
     const compiledTemplate = Handlebars.compile(templateStr);
-    console.log('Template compiled successfully.');
+    // console.log('Template compiled successfully.');
 
-    // 4. Render template with data
-    console.log('Rendering template with data...');
+    console.log('Rendering template with data...'); // Keep this one
     const outputHtml = compiledTemplate(data);
-    console.log('HTML rendered successfully.');
+    console.log('HTML rendered successfully.'); // Keep this one
 
-    // 5. Prepare output directory and copy CSS
     const outputDir = path.join(__dirname, 'dist');
-    console.log(`Ensuring output directory exists: ${outputDir}`);
+    // console.log(`Ensuring output directory exists: ${outputDir}`);
     await fs.mkdir(outputDir, { recursive: true });
 
     const cssSourcePath = path.join(__dirname, 'style.css');
     const cssDestPath = path.join(outputDir, 'style.css');
-    console.log(`Attempting to copy style.css from ${cssSourcePath} to ${cssDestPath}`);
+    // console.log(`Attempting to copy style.css from ${cssSourcePath} to ${cssDestPath}`);
     try {
       await fs.access(cssSourcePath);
       await fs.copyFile(cssSourcePath, cssDestPath);
-      console.log('style.css copied to dist/ successfully.');
+      // console.log('style.css copied to dist/ successfully.');
     } catch (error) {
       if (error.code === 'ENOENT') {
         console.warn('Warning: style.css not found in project root. It was not copied to dist/.');
       } else {
         console.error('Error copying style.css:', error);
-        // Decide if this should be a fatal error: throw error;
       }
     }
 
-    // 6. Write output HTML
     const outputPath = path.join(outputDir, 'index.html');
-    console.log(`Writing generated HTML to: ${outputPath}`);
+    // console.log(`Writing generated HTML to: ${outputPath}`);
     await fs.writeFile(outputPath, outputHtml);
 
-    console.log('Resume generated successfully at dist/index.html!');
+    console.log('Resume generated successfully at dist/index.html!'); // Keep this one
 
   } catch (error) {
     console.error('FATAL ERROR during resume generation:', error);
-    process.exitCode = 1; // Indicate an error exit code
+    process.exitCode = 1;
   }
 }
 
