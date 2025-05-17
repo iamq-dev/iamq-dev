@@ -8,6 +8,7 @@ on:
       - 'resume_data.json'
       - 'template.hbs'
       - 'generate-resume.js'
+      - 'style.css'
       - '.github/workflows/build-resume.yml'
   workflow_dispatch: # Allows manual triggering
 
