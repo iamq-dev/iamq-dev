@@ -140,7 +140,53 @@
     </div>
     {{/if}}
     {{!-- Technical Proficiency Section End --}}
-    {{!-- Education Section will go here --}}
+    {{!-- Education Section Start --}}
+    {{#if education}}
+    <div class="card">
+      <div class="card-header" id="heading-Education"> {{!-- Static ID is fine --}}
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-Education" aria-expanded="false" aria-controls="collapse-Education">
+            <span class="btn-icon">+</span>
+            <span class="btn-icon-expanded">-</span>
+            <span class="title-line">Education</span>
+          </button>
+        </h5>
+      </div>
+      <div id="collapse-Education" class="collapse" aria-labelledby="heading-Education" data-parent="#accordion">
+        <div class="card-body">
+          {{#each education}}
+            {{#if @index}} {{!-- Add a horizontal rule before the second entry onwards --}}
+              <hr>
+            {{/if}}
+            {{#if this.degree}}<h3>{{{this.degree}}}</h3>{{/if}}
+            <p>
+              {{#if this.institutionURL}}
+                <a href="{{this.institutionURL}}" target="_blank" rel="noopener noreferrer">{{this.institution}}</a>
+              {{else}}
+                {{this.institution}}
+              {{/if}}
+              {{#if this.location}} | {{this.location}}{{/if}}
+            </p>
+            {{#if this.graduationYear}}<p><strong>Graduated:</strong> {{this.graduationYear}}</p>{{/if}}
+            
+            {{#if this.coursework}}
+              {{#if this.coursework.length}} {{!-- Check if coursework array has items --}}
+                <p><strong>Coursework included:</strong></p>
+                <ul class="endpoints">
+                  {{#each this.coursework}}
+                    <li>{{{this}}}</li>
+                  {{/each}}
+                </ul>
+              {{/if}}
+            {{/if}}
+
+            {{#if this.honors}}<p><strong>Honors:</strong> {{{this.honors}}}</p>{{/if}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    {{!-- Education Section End --}}
     {{!-- Personal Experience Section will go here --}}
     {{!-- References Section will go here --}}
     <span class="update">last-update: {{meta.lastUpdated}}</span>
