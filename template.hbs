@@ -8,7 +8,7 @@
 <body>
   <div class="container">
     {{!-- Header Section Start --}}
-    <h1>{{header.name}}</h1>
+    <h1>{{{header.name}}}</h1>
     <h2>
       {{#each header.titles}}
         {{this}}{{#unless @last}} | {{/unless}}
