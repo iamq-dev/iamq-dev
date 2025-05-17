@@ -114,6 +114,30 @@ async function generateResume() {
     // 5. Write output to dist/index.html
     const outputDir = path.join(__dirname, 'dist');
     await fs.mkdir(outputDir, { recursive: true }); // Create dist directory if it doesn't exist
+
+    // --- START:  copy style.css ---
+    const cssSourcePath = path.join(__dirname, 'style.css');
+    const cssDestPath = path.join(outputDir, 'style.css');
+
+    try {
+      await fs.access(cssSourcePath); // Check if source CSS file exists
+      await fs.copyFile(cssSourcePath, cssDestPath);
+      console.log('style.css copied to dist/');
+    } catch (error) {
+      // Handle cases where style.css might be missing in the root
+      if (error.code === 'ENOENT') {
+        // Log a warning but don't fail the build if style.css is optional or might not exist
+        console.warn('Warning: style.css not found in project root. It will not be copied to dist/.');
+        console.warn('If you have an external stylesheet, ensure it is named style.css and placed in the project root.');
+      } else {
+        // For other errors during copy, log them more critically
+        console.error('Error copying style.css:', error);
+        // Optionally, re-throw the error if CSS is critical and build should fail
+        // throw error; 
+      }
+    }
+    // --- END: copy style.css ---
+    
     const outputPath = path.join(outputDir, 'index.html');
     await fs.writeFile(outputPath, outputHtml);
 
