@@ -1,0 +1,52 @@
+name: Build and Deploy Resume
+
+on:
+  push:
+    branches:
+      - dev
+    paths: # Only run if these files change
+      - 'resume_data.json'
+      - 'template.hbs'
+      - 'generate-resume.js'
+      - '.github/workflows/build-resume.yml'
+  workflow_dispatch: # Allows manual triggering
+
+permissions:
+  contents: read
+  pages: write # Required to deploy to GitHub Pages
+  id-token: write # Required for OIDC token if using trusted publishing
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: # Environment for GitHub Pages
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4 # Using latest major version
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Specify your desired Node.js version
+
+      - name: Install dependencies
+        run: npm install handlebars 
+        # If you had a package.json, you'd run 'npm ci' or 'npm install'
+
+      - name: Generate HTML resume
+        run: node generate-resume.js
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist' # The script outputs to the 'dist' folder
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
