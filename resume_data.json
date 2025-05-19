@@ -46,7 +46,7 @@
           "description":"API integration between platforms, task autoamtion, reporting, tools and utilities, gitlab, ..."
         },
         {
-          "title":"Vulnerability Management"
+          "title":"Vulnerability Management",
           "description":"microsoft defender vulnerability management, Tenable nessus scanner, "
         }
       ]
