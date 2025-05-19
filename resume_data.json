@@ -18,7 +18,7 @@
   },
   "workExperience": [
     {
-      "jobTitle":"Intrmdte Sec Anlst",
+      "jobTitle":"Intermedite Security Analyst ( WIP )",
       "companyName":"Oklahoma University",
       "companyURL":"https://www.ou.edu",
       "Location":"Norman, OK",
@@ -26,8 +26,16 @@
       "description":"As a Intrmdte Sec Anlst, my role does some security stuff ( WIP )",
       "items":[
         {
-          "title":"logging",
-          "description":"set up logs to log the logs or lumberjacking as I like to call it."
+          "title":"Monitoring tools",
+          "description":"Setup and use of monitoring tools, Graylog, microsoft defender log analytics, crowdstrike, spycloud, bloodhound, pingID, ..."
+        },
+        {
+          "title":"Firewall",
+          "description":"Palo alto firewalls, nat and security policies, VPN setup, Global Protect, syslog"
+        },
+        {
+          "title":"Incident Response",
+          "description":"Been an active member of the incident response team"
         }
       ]
     },
