@@ -27,7 +27,7 @@
       "items":[
         {
           "title":"Monitoring tools",
-          "description":"Setup and use of monitoring tools, Graylog, microsoft defender log analytics, crowdstrike, spycloud, bloodhound, pingID, ..."
+          "description":"Setup and use of monitoring tools, Graylog, microsoft defender log analytics, crowdstrike, spycloud, bloodhound, pingID, HaveIBeenPwned, ..."
         },
         {
           "title":"Firewall",
@@ -36,6 +36,18 @@
         {
           "title":"Incident Response",
           "description":"Been an active member of the incident response team"
+        },
+        {
+          "title":"Training",
+          "description":"Customer facing training and simulation, KnowBe4"
+        },
+        {
+          "title":"Scripting",
+          "description":"API integration between platforms, task autoamtion, reporting, tools and utilities, gitlab, ..."
+        },
+        {
+          "title":"Vulnerability Management"
+          "description":"microsoft defender vulnerability management, Tenable nessus scanner, "
         }
       ]
     },
