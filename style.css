@@ -6,9 +6,13 @@
     }
 
     h1 .name-detail {
-      color: rgb(50,50,50); /* Replace with the hex code or name of your desired darker color */
-                              /* For example, if your h1 is #DDD, maybe this is #AAA or #999 */
+      color: rgb(50,50,50);                      
       font-size: 0.65em;  
+    }
+
+    h2 {
+       color: rgb(0, 0, 0);
+       font-size: 2em;
     }
                               
     .endpoints {
