@@ -5,7 +5,7 @@
       font-size: 4em;
     }
 
-    .name-detail {
+    h1 .name-detail {
       color: rgb(200, 200, 200); /* Replace with the hex code or name of your desired darker color */
                               /* For example, if your h1 is #DDD, maybe this is #AAA or #999 */
       font-size: 0.85em;  
