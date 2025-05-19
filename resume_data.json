@@ -6,23 +6,37 @@
       "Cybersecurity",
       "Programming",
       "Game Developent",
-      "Sysadmin"
+      "Sysadmin",
+      "Large Language Models"
     ],
     "contact": {
       "email": "q@iamq.dev",
-      "linkedin": "https://www.linkedin.com/in/iamq-dev/",
-      "portfolio": "https://www.iamq.dev/projects"
+      "linkedin": "https://www.linkedin.com/in/iamq-dev/"
     },
-    "locationContext": "Remote Work Enthusiast",
+    "locationContext": "Oklahoma | Full Time Remote",
     "summary": "An accomplished cybersecurity professional with a unique background in game development, offering a blend of technical skills in both areas. Currently excelling in the role of a Cybersecurity Specialist, with a proven track record in managing security systems, developing cybersecurity policies, and educating staff on security protocols. Prior experience in game development and programming, with a particular focus on Virtual Reality (VR) games on the Unreal Engine platform, adds a creative edge to my problem-solving abilities. Proficient in a wide range of hardware and software tools, and always ready to leverage these skills to ensure optimal security and functionality."
   },
   "workExperience": [
+    {
+      "jobTitle":"Intrmdte Sec Anlst",
+      "companyName":"Oklahoma University",
+      "companyURL":"https://www.ou.edu",
+      "Location":"Norman, OK",
+      "dateRange":"2023 - Present",
+      "description":"As a Intrmdte Sec Anlst, my role does some security stuff ( WIP )",
+      "items":[
+        {
+          "title":"logging",
+          "description":"set up logs to log the logs or lumberjacking as I like to call it."
+        }
+      ]
+    },
     {
       "jobTitle": "Cybersecurity Specialist",
       "companyName": "Rogers State University",
       "companyURL": "https://www.rsu.edu",
       "location": "Claremore, OK",
-      "dateRange": "2020 - Present",
+      "dateRange": "2020 - 2023",
       "description": "As a Cybersecurity Specialist, my role encompassed proactively identifying and mitigating security vulnerabilities, implementing protective measures, monitoring network activity for potential threats, and responding to and resolving security incidents to safeguard organizational systems and data.",
       "items": [
         {
