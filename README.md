@@ -1,5 +1,5 @@
 ### Hi there 👋
-
+This code builds a resume from a json file.
 <!--
 **iamq-dev/iamq-dev** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
