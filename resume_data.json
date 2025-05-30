@@ -18,39 +18,39 @@
   },
   "workExperience": [
     {
-      "jobTitle":"Intermedite Security Analyst ( WIP )",
-      "companyName":"Oklahoma University",
-      "companyURL":"https://www.ou.edu",
-      "Location":"Norman, OK",
-      "dateRange":"2023 - Present",
-      "description":"As a Intrmdte Sec Anlst, my role does some security stuff ( WIP )",
-      "items":[
-        {
-          "title":"Monitoring tools",
-          "description":"Setup and use of monitoring tools, Graylog, microsoft defender log analytics, crowdstrike, spycloud, bloodhound, pingID, HaveIBeenPwned, ..."
-        },
-        {
-          "title":"Firewall",
-          "description":"Palo alto firewalls, nat and security policies, VPN setup, Global Protect, syslog"
-        },
-        {
-          "title":"Incident Response",
-          "description":"Been an active member of the incident response team"
-        },
-        {
-          "title":"Training",
-          "description":"Customer facing training and simulation, KnowBe4"
-        },
-        {
-          "title":"Scripting",
-          "description":"API integration between platforms, task autoamtion, reporting, tools and utilities, gitlab, ..."
-        },
-        {
-          "title":"Vulnerability Management",
-          "description":"microsoft defender vulnerability management, Tenable nessus scanner, "
-        }
-      ]
+  "jobTitle": "Intermediate Security Analyst",
+  "companyName": "Oklahoma University",
+  "companyURL": "https://www.ou.edu",
+  "location": "Norman, OK",
+  "dateRange": "2023 - Present",
+  "description": "As an Intermediate Security Analyst, I play a key role in safeguarding Oklahoma University's digital assets by leveraging advanced security tools and practices. My responsibilities encompass proactive threat monitoring, robust firewall management, active participation in incident response, development and delivery of security training, automation of security tasks through scripting, and systematic vulnerability management.",
+  "items": [
+    {
+      "title": "Security Monitoring & Threat Detection",
+      "description": "Configured, administered, and actively utilized a suite of monitoring tools including Graylog, Microsoft Defender Log Analytics, CrowdStrike, and BloodHound to detect, analyze, and respond to security events and potential threats. Leveraged threat intelligence from SpyCloud and HaveIBeenPwned to proactively identify and mitigate risks. Managed PingID for secure authentication."
     },
+    {
+      "title": "Firewall Administration & Network Security",
+      "description": "Managed and maintained Palo Alto firewalls, including the development and implementation of NAT and security policies. Configured and supported VPN setups and GlobalProtect for secure remote access, ensuring robust network perimeter defense and integrity. Utilized syslog for comprehensive event logging and analysis."
+    },
+    {
+      "title": "Incident Response",
+      "description": "Served as an active and integral member of the incident response team, contributing to the identification, containment, eradication, and recovery phases of security incidents to minimize impact and enhance institutional resilience."
+    },
+    {
+      "title": "Security Awareness & Training",
+      "description": "Developed and delivered customer-facing security awareness training programs and phishing simulations using platforms like KnowBe4, aimed at educating end-users, reducing human-based risk, and fostering a security-conscious culture within the university."
+    },
+    {
+      "title": "Scripting & Automation",
+      "description": "Developed and deployed scripts for API integration between diverse security platforms, automated repetitive security tasks, and generated custom reports to improve operational efficiency and provide actionable insights. Managed code and version control using GitLab for scripting projects and tool development."
+    },
+    {
+      "title": "Vulnerability Management",
+      "description": "Proactively managed system vulnerabilities by utilizing Microsoft Defender Vulnerability Management and conducting regular scans with Tenable Nessus. Analyzed scan results, prioritized remediation efforts, and collaborated with relevant teams to address identified weaknesses."
+    }
+  ]
+},
     {
       "jobTitle": "Cybersecurity Specialist",
       "companyName": "Rogers State University",
