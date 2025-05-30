@@ -28,7 +28,7 @@
     {
       "title": "Security Monitoring & Threat Detection",
       "shortDescription": "Oversaw and utilized a range of security monitoring tools to identify, analyze, and mitigate potential threats and security events.",
-      "details": [
+      "items": [
         "Configured, administered, and actively utilized Graylog and Microsoft Defender Log Analytics for comprehensive log collection, security event correlation, and real-time threat analysis.",
         "Employed CrowdStrike for advanced endpoint detection and response (EDR) and BloodHound for Active Directory security analysis and threat hunting.",
         "Leveraged threat intelligence from SpyCloud (breach data) and HaveIBeenPwned to proactively identify compromised credentials and mitigate associated risks.",
@@ -38,7 +38,7 @@
     {
       "title": "Firewall Administration & Network Security",
       "shortDescription": "Managed Palo Alto firewalls to maintain network security, including policy configuration and secure remote access solutions.",
-      "details": [
+      "items": [
         "Administered Palo Alto next-generation firewalls, focusing on the development, implementation, and refinement of NAT and security policies to protect network resources.",
         "Configured and maintained VPN setups and GlobalProtect solutions to provide secure and reliable remote access for university staff and students.",
         "Utilized syslog for centralized logging of firewall events, aiding in troubleshooting, security analysis, and compliance reporting."
@@ -47,7 +47,7 @@
     {
       "title": "Incident Response",
       "shortDescription": "Played an active role in the university's cybersecurity incident response efforts, contributing to all phases of incident handling.",
-      "details": [
+      "items": [
         "Served as a key contributor to the incident response team, participating in all phases from initial detection and analysis to containment, eradication, and post-incident recovery.",
         "Assisted in developing and refining incident response procedures to ensure timely and effective mitigation of security breaches and impact minimization."
       ]
@@ -55,7 +55,7 @@
     {
       "title": "Security Awareness & Training",
       "shortDescription": "Developed and delivered security awareness training programs and phishing simulations to university personnel.",
-      "details": [
+      "items": [
         "Designed and conducted engaging customer-facing security awareness training sessions and realistic phishing simulations using KnowBe4.",
         "Focused on educating end-users about current cyber threats and best practices to reduce human-element risks and promote a proactive security culture."
       ]
@@ -63,7 +63,7 @@
     {
       "title": "Scripting & Automation",
       "shortDescription": "Utilized scripting for API integrations, task automation, and custom reporting to enhance security operations and efficiency.",
-      "details": [
+      "items": [
         "Developed scripts (e.g., Python, PowerShell) to integrate various security platforms via APIs, streamlining data flow and interoperability.",
         "Automated routine security tasks and report generation, significantly improving operational efficiency and consistency in security monitoring.",
         "Created custom tools and utilities to support security analysis and operational needs, managing code versions and collaboration through GitLab."
@@ -72,7 +72,7 @@
     {
       "title": "Vulnerability Management",
       "shortDescription": "Conducted vulnerability assessments and managed remediation efforts using industry-standard scanning tools to reduce attack surfaces.",
-      "details": [
+      "items": [
         "Employed Microsoft Defender Vulnerability Management and Tenable Nessus scanner to perform regular, comprehensive vulnerability assessments across university systems.",
         "Analyzed scan outputs to identify, categorize, and prioritize vulnerabilities based on risk and potential impact.",
         "Collaborated with system owners and IT teams to track and ensure timely remediation of identified weaknesses, enhancing overall security posture."
