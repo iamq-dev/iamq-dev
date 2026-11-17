@@ -273,7 +273,7 @@
         "items": [
           {
             "name": "Windows",
-            "description": "My current main OS; my current job lives in Windows, so I do as well."
+            "description": "My current main OS; my current job lives in Windows, so I do as well. Experience in Windows server"
           },
           {
             "name": "Linux",
@@ -291,7 +291,7 @@
               "Gimp",
               "Blender",
               "Cinema4D",
-              "Chitubox"
+              "LycheeSlicer"
             ]
           },
           {
@@ -306,8 +306,7 @@
             "tools": [
               "Git",
               "Git LFS",
-              "Perforce",
-              "WVS"
+              "Perforce"
             ]
           },
           {
@@ -326,11 +325,10 @@
               "AutoHotKey",
               "PowerToys",
               "Sysinternals",
-              "Brave (working on transitioning to Nyxt)",
+              "Brave",
               "Obs",
               "Obsidian",
               "VLC",
-              "MSEdgeRedirect",
               "1Password",
               "Ultramon"
             ]
@@ -410,7 +408,7 @@
       "organization": "Rogers State University",
       "organizationURL": "https://www.rsu.edu",
       "location": "Claremore, OK",
-      "contactURL": "https://www.rsu.edu/directory/brian-reeves/"
+      "contactURL": "https://www.rsu.edu/staff/brian-reeves/"
     },
     {
       "name": "Ethan Wililams",
@@ -422,15 +420,15 @@
     },
     {
       "name": "Simon Manning",
-      "title": "Freelance Designer",
-      "organization": "Freelance",
-      "organizationURL": "https://www.simplesimon.space/",
+      "title": "Design Technology Integration Leader",
+      "organization": "NBBJ",
+      "organizationURL": "https://www.nbbj.com/",
       "location": "Seattle, WA",
       "contactURL": "https://www.linkedin.com/in/simonxr/"
     },
     {
       "name": "Christian Jensen",
-      "title": "Systems Database Manager",
+      "title": "Senior Data Manager",
       "organization": "Osage Nation Casinos",
       "organizationURL": "https://www.osagecasino.com/",
       "location": "Tulsa, OK",
