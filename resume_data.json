@@ -6,8 +6,7 @@
       "Cybersecurity",
       "Programming",
       "Game Developent",
-      "Sysadmin",
-      "Large Language Models"
+      "Sysadmin"
     ],
     "contact": {
       "email": "q@iamq.dev",
@@ -278,7 +277,7 @@
           },
           {
             "name": "Linux",
-            "description": "I ran Linux as my main OS for quite a few years, changing back to Windows for work requirements. Some distros I used are Kali, Arch, #!, and Ubuntu. When I get to building a new machine, I'll be starting fresh with <a href=\\\"https://www.qubes-os.org/\\\">Qubes OS</a>."
+            "description": "I ran Linux as my main OS for quite a few years, changing back to Windows for work requirements. Some distros I used are Kali, Arch, #!, Redhat, and Ubuntu."
           }
         ]
       },
@@ -292,8 +291,6 @@
               "Gimp",
               "Blender",
               "Cinema4D",
-              "Stability",
-              "Control-Net",
               "Chitubox"
             ]
           },
@@ -441,6 +438,6 @@
     }
   ],
   "meta": {
-    "lastUpdated": "2023-07-17T18:50:31"
+    "lastUpdated": "2026-11-17T12:58:10"
   }
 }
